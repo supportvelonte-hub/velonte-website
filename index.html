@@ -248,8 +248,27 @@ Sleek Oval Glassware Vase
 alt="Round Glass Centerpiece Fish Bowl">
 
 <div class="product-info">
-<div class="product-name">
-Round Glass Centerpiece Fish Bowl
+  <div class="product-name">
+    Round Glass Centerpiece Fish Bowl
+  </div>
+
+  <label style="display:block; margin:15px 0 8px; font:12px Arial,sans-serif; color:#666;">
+    Select Size
+  </label>
+
+  <select id="fishBowlSize"
+          onchange="updateFishBowlPrice()"
+          style="padding:10px 14px; width:100%; border:1px solid #ccc; background:white; font:13px Arial,sans-serif;">
+    <option value="999" data-mrp="1299">8 Inch</option>
+    <option value="1399" data-mrp="1799">10 Inch</option>
+  </select>
+
+  <div class="price" id="fishBowlPrice" style="margin-top:14px;">
+    <span style="text-decoration:line-through; color:#888;">₹1,299</span>
+    <strong style="margin-left:8px;">₹999</strong>
+    <span style="margin-left:8px; font-size:11px; color:#777;">23% OFF</span>
+  </div>
+</div>
 </div>
 
 <div class="price">
