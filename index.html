@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>VELONTE — Crafted for Calm</title>
+  <meta name="description" content="VELONTE — Modern luxury home décor, crafted for calm and made for you.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #f6f3ed;
+      color: #171717;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 28px 6%;
+      color: white;
+    }
+
+    .logo {
+      font-size: 23px;
+      letter-spacing: 7px;
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 35px;
+      list-style: none;
+
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 92vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+      color: white;
+
+      position: relative;
+
+      background:
+        linear-gradient(
+          rgba(0, 0, 0, 0.32),
+          rgba(0, 0, 0, 0.48)
+        ),
+        url("https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=2000&q=90")
+        center / cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      padding: 30px;
+    }
+
+    .eyebrow {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(52px, 10vw, 120px);
+      font-weight: 400;
+      letter-spacing: 13px;
+      margin-left: 13px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      font-style: italic;
+      margin: 18px 0 36px;
+    }
+
+    .btn {
+      display: inline-block;
+
+      border: 1px solid white;
+      padding: 15px 32px;
+
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: white;
+      color: #111;
+    }
+
+    /* GENERAL SECTIONS */
+
+    section {
+      padding: 100px 7%;
+    }
+
+    .section-label {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 400;
+      margin-bottom: 50px;
+    }
+
+    /* COLLECTION */
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .product {
+      background: #ebe6dc;
+      overflow: hidden;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 440px;
+      object-fit: cover;
+      display: block;
+
+      transition: transform 0.6s ease;
+    }
+
+    .product:hover .product-image {
+      transform: scale(1.04);
+    }
+
+    .product-info {
+      padding: 22px;
+    }
+
+    .product-name {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .price {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: #777;
+    }
+
+    /* STORY */
+
+    .story {
+      background: #191917;
+      color: white;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+
+      align-items: center;
+    }
+
+    .story-image {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+    }
+
+    .story-content h2 {
+      font-size: clamp(40px, 5vw, 65px);
+      font-weight: 400;
+      line-height: 1.08;
+      margin-bottom: 28px;
+    }
+
+    .story-content p {
+      max-width: 520px;
+
+      color: #c8c7c2;
+
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .contact h2 {
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 22px;
+    }
+
+    .contact p {
+      font-family: Arial, sans-serif;
+      color: #707070;
+      margin-bottom: 35px;
+    }
+
+    .dark-btn {
+      color: #111;
+      border-color: #111;
+    }
+
+    .dark-btn:hover {
+      background: #111;
+      color: white;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #111;
+      color: white;
+      padding: 55px 7%;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-logo {
+      font-size: 22px;
+      letter-spacing: 6px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 30px;
+
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      color: #aaa;
+    }
+
+    .copyright {
+      border-top: 1px solid #333;
+      margin-top: 45px;
+      padding-top: 20px;
+
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      color: #777;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      nav {
+        padding: 22px 5%;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 86vh;
+      }
+
+      .hero h1 {
+        letter-spacing: 7px;
+      }
+
+      section {
+        padding: 70px 5%;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .product-image {
+        height: 400px;
+      }
+
+      .story {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .story-image {
+        height: 450px;
+      }
+
+      .footer-top {
+        flex-direction: column;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+
+    <a href="#" class="logo">
+      VELONTE
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#collection">Collection</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        Modern Luxury Home Décor
+      </div>
+
+      <h1>
+        VELONTE
+      </h1>
+
+      <p>
+        Crafted for Calm. Made for You.
+      </p>
+
+      <a href="#collection" class="btn">
+        Explore Collection
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- COLLECTION -->
+
+  <section id="collection">
+
+    <div class="section-label">
+      The Collection
+    </div>
+
+    <h2 class="section-title">
+      Objects with presence.
+    </h2>
+
+    <div class="products">
+
+      <article class="product">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1000&q=90"
+          alt="Elegant glass home décor"
+        >
+
+        <div class="product-info">
+
+          <div class="product-name">
+            Signature Glass
+          </div>
+
+          <div class="price">
+            ₹699
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <article class="product">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=1000&q=90"
+          alt="Luxury scented candle"
+        >
+
+        <div class="product-info">
+
+          <div class="product-name">
+            Velonte Candle
+          </div>
+
+          <div class="price">
+            ₹599
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <article class="product">
+
+        <img
+          class="product-image"
+          src="https://images.unsplash.com/photo-1572726729207-a78d6feb18d7?auto=format&fit=crop&w=1000&q=90"
+          alt="Elegant decorative glass"
+        >
+
+        <div class="product-info">
+
+          <div class="product-name">
+            Aura Collection
+          </div>
+
+          <div class="price">
+            ₹799
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- STORY -->
+
+  <section class="story" id="story">
+
+    <img
+      class="story-image"
+      src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=90"
+      alt="Elegant luxury interior"
+    >
+
+    <div class="story-content">
+
+      <div class="section-label">
+        Our Story
+      </div>
+
+      <h2>
+        Made to make a space feel like yours.
+      </h2>
+
+      <p>
+        Velonte brings together timeless design, thoughtful craftsmanship
+        and the quiet beauty of glass. Born from the rich glassmaking
+        heritage of Firozabad, every piece is designed to bring warmth,
+        character and calm into everyday spaces.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <div class="contact">
+
+      <div class="section-label">
+        Connect With Velonte
+      </div>
+
+      <h2>
+        Let's create something beautiful.
+      </h2>
+
+      <p>
+        For product enquiries, collaborations and more,
+        get in touch with us.
+      </p>
+
+      <a
+        href="mailto:contact@velonte.in"
+        class="btn dark-btn"
+      >
+        Contact Us
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-top">
+
+      <div class="footer-logo">
+        VELONTE
+      </div>
+
+      <div class="footer-links">
+
+        <a href="#collection">
+          Collection
+        </a>
+
+        <a href="#story">
+          Our Story
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 VELONTE. All rights reserved.
+    </div>
+
+  </footer>
+
+</body>
+</html>
