@@ -256,12 +256,23 @@ alt="Round Glass Centerpiece Fish Bowl">
     Select Size
   </label>
 
-  <select id="fishBowlSize"
-          onchange="updateFishBowlPrice()"
-          style="padding:10px 14px; width:100%; border:1px solid #ccc; background:white; font:13px Arial,sans-serif;">
-    <option value="999" data-mrp="1299">8 Inch</option>
-    <option value="1399" data-mrp="1799">10 Inch</option>
-  </select>
+  <script>
+function updateFishBowlPrice() {
+  const select = document.getElementById("fishBowlSize");
+  const option = select.options[select.selectedIndex];
+
+  const selling = option.value;
+  const mrp = option.getAttribute("data-mrp");
+
+  const discount = Math.round((1 - Number(selling) / Number(mrp)) * 100);
+
+  document.getElementById("fishBowlPrice").innerHTML =
+    '<span style="text-decoration:line-through; color:#888;">₹' + mrp + '</span>' +
+    '<strong style="margin-left:8px;">₹' + selling + '</strong>' +
+    '<span style="margin-left:8px; font-size:11px; color:#777;">' +
+    discount + '% OFF</span>';
+}
+</script>
 
   <div class="price" id="fishBowlPrice" style="margin-top:14px;">
     <span style="text-decoration:line-through; color:#888;">₹1,299</span>
