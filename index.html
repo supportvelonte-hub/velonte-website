@@ -1,348 +1,590 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VELONTE — Modern Luxury Home Décor</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
+  <title>VELONTE — Modern Luxury Home Décor</title>
 
-body{
-font-family:Georgia,"Times New Roman",serif;
-background:#f5f2ec;
-color:#171717;
-line-height:1.6
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-nav{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:28px 6%;
-color:white;
-z-index:5
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.logo{
-font-size:23px;
-letter-spacing:7px
-}
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #f5f2ec;
+      color: #171717;
+      line-height: 1.6;
+    }
 
-.nav-links{
-display:flex;
-gap:30px;
-list-style:none;
-font:12px Arial,sans-serif;
-letter-spacing:1.5px
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.hero{
-height:90vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
-background:
-linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.5)),
-url("https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=2000&q=90")
-center/cover
-}
+    /* NAVIGATION */
 
-.hero h1{
-font-size:clamp(55px,10vw,120px);
-font-weight:400;
-letter-spacing:12px
-}
+    nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 6%;
+      color: white;
+      z-index: 5;
+    }
 
-.hero p{
-font-style:italic;
-font-size:18px;
-margin:15px 0 30px
-}
+    .logo {
+      font-size: 23px;
+      letter-spacing: 7px;
+      white-space: nowrap;
+    }
 
-.btn{
-display:inline-block;
-border:1px solid white;
-padding:14px 30px;
-color:white;
-font:11px Arial,sans-serif;
-letter-spacing:2px;
-text-transform:uppercase
-}
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      font: 12px Arial, sans-serif;
+      letter-spacing: 1.5px;
+    }
 
-section{padding:90px 7%}
+    .nav-links a {
+      transition: opacity 0.25s ease;
+    }
 
-.label{
-font:10px Arial,sans-serif;
-letter-spacing:3px;
-color:#777;
-text-transform:uppercase;
-margin-bottom:15px
-}
+    .nav-links a:hover {
+      opacity: 0.65;
+    }
 
-h2{
-font-size:clamp(38px,5vw,60px);
-font-weight:400;
-margin-bottom:45px
-}
+    /* HERO */
 
-.products{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:25px
-}
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 100px 6% 70px;
 
-.product{
-background:#ebe7df;
-overflow:hidden
-}
+      background:
+        linear-gradient(
+          rgba(0, 0, 0, 0.35),
+          rgba(0, 0, 0, 0.50)
+        ),
+        url("https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=2000&q=90")
+        center / cover no-repeat;
+    }
 
-.product img{
-width:100%;
-height:520px;
-object-fit:cover;
-display:block
-}
+    .hero-content {
+      max-width: 900px;
+    }
 
-.product-info{
-padding:22px
-}
+    .hero .label {
+      color: white;
+    }
 
-.product-name{
-font-size:21px;
-margin-bottom:5px
-}
+    .hero h1 {
+      font-size: clamp(55px, 10vw, 120px);
+      font-weight: 400;
+      letter-spacing: 12px;
+    }
 
-.price{
-font:13px Arial,sans-serif;
-color:#777
-}
+    .hero p {
+      font-style: italic;
+      font-size: 18px;
+      margin: 15px 0 30px;
+    }
 
-.story{
-background:#191917;
-color:white;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-align-items:center
-}
+    .btn {
+      display: inline-block;
+      border: 1px solid white;
+      padding: 14px 30px;
+      color: white;
+      font: 11px Arial, sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
 
-.story img{
-width:100%;
-height:550px;
-object-fit:cover
-}
+    .btn:hover {
+      background: white;
+      color: #111;
+    }
 
-.story h2{
-font-size:clamp(40px,5vw,65px);
-line-height:1.08
-}
+    /* GENERAL SECTIONS */
 
-.story p{
-font:15px Arial,sans-serif;
-color:#c8c7c2;
-line-height:1.9;
-max-width:500px
-}
+    section {
+      padding: 90px 7%;
+    }
 
-.contact{text-align:center}
+    .label {
+      font: 10px Arial, sans-serif;
+      letter-spacing: 3px;
+      color: #777;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
 
-.contact h2{max-width:800px;margin:0 auto 25px}
+    h2 {
+      font-size: clamp(38px, 5vw, 60px);
+      font-weight: 400;
+      margin-bottom: 45px;
+    }
 
-.contact p{
-font:14px Arial,sans-serif;
-color:#777;
-margin-bottom:30px
-}
+    /* PRODUCTS */
 
-.dark{
-color:#111;
-border-color:#111
-}
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
 
-footer{
-background:#111;
-color:white;
-padding:50px 7%;
-font:11px Arial,sans-serif
-}
+    .product {
+      background: #ebe7df;
+      overflow: hidden;
+    }
 
-.footer-logo{
-font-family:Georgia,serif;
-font-size:22px;
-letter-spacing:6px;
-margin-bottom:25px
-}
+    .product-image-wrap {
+      width: 100%;
+      height: 520px;
+      background: #ebe7df;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
 
-@media(max-width:700px){
-.nav-links{display:none}
-.hero h1{letter-spacing:7px}
-.products{grid-template-columns:1fr}
-.product img{height:430px}
-.story{grid-template-columns:1fr}
-.story img{height:420px}
-section{padding:70px 5%}
-}
-</style>
+    .product img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      padding: 24px;
+      transition: transform 0.5s ease;
+    }
+
+    .product:hover img {
+      transform: scale(1.025);
+    }
+
+    .product-info {
+      padding: 22px;
+      background: #ebe7df;
+    }
+
+    .product-name {
+      font-size: 21px;
+      margin-bottom: 16px;
+    }
+
+    .price {
+      font: 13px Arial, sans-serif;
+      color: #777;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      color: #888;
+    }
+
+    .sale-price {
+      margin-left: 8px;
+      color: #171717;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .discount {
+      margin-left: 8px;
+      font-size: 11px;
+      color: #777;
+      letter-spacing: 0.5px;
+    }
+
+    .size-label {
+      display: block;
+      margin: 15px 0 8px;
+      font: 12px Arial, sans-serif;
+      color: #666;
+    }
+
+    .size-select {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid #ccc;
+      background: white;
+      color: #171717;
+      font: 13px Arial, sans-serif;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .size-select:focus {
+      border-color: #777;
+    }
+
+    /* STORY */
+
+    .story {
+      background: #191917;
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .story img {
+      width: 100%;
+      height: 550px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .story h2 {
+      font-size: clamp(40px, 5vw, 65px);
+      line-height: 1.08;
+    }
+
+    .story p {
+      font: 15px Arial, sans-serif;
+      color: #c8c7c2;
+      line-height: 1.9;
+      max-width: 500px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact h2 {
+      max-width: 800px;
+      margin: 0 auto 25px;
+    }
+
+    .contact p {
+      font: 14px Arial, sans-serif;
+      color: #777;
+      margin-bottom: 30px;
+    }
+
+    .dark {
+      color: #111;
+      border-color: #111;
+    }
+
+    .dark:hover {
+      background: #111;
+      color: white;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #111;
+      color: white;
+      padding: 50px 7%;
+      font: 11px Arial, sans-serif;
+    }
+
+    .footer-logo {
+      font-family: Georgia, serif;
+      font-size: 22px;
+      letter-spacing: 6px;
+      margin-bottom: 25px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+      .nav-links {
+        display: none;
+      }
+
+      nav {
+        padding: 22px 5%;
+      }
+
+      .hero {
+        min-height: 82vh;
+        padding: 90px 5% 60px;
+      }
+
+      .hero h1 {
+        letter-spacing: 7px;
+      }
+
+      section {
+        padding: 70px 5%;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .product-image-wrap {
+        height: 430px;
+      }
+
+      .story {
+        grid-template-columns: 1fr;
+      }
+
+      .story img {
+        height: 420px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<nav>
-<div class="logo">VELONTE</div>
+  <!-- NAVIGATION -->
 
-<ul class="nav-links">
-<li><a href="#collection">Collection</a></li>
-<li><a href="#story">Our Story</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
+  <nav>
+    <div class="logo">VELONTE</div>
 
-<header class="hero">
-<div>
-<div class="label" style="color:white">Modern Luxury Home Décor</div>
-<h1>VELONTE</h1>
-<p>Crafted for Calm. Made for You.</p>
-<a href="#collection" class="btn">Explore Collection</a>
-</div>
-</header>
+    <ul class="nav-links">
+      <li><a href="#collection">Collection</a></li>
+      <li><a href="#story">Our Story</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<section id="collection">
 
-<div class="label">The Collection</div>
+  <!-- HERO -->
 
-<h2>Objects with presence.</h2>
+  <header class="hero">
+    <div class="hero-content">
 
-<div class="products">
+      <div class="label">
+        Modern Luxury Home Décor
+      </div>
 
-<article class="product">
+      <h1>VELONTE</h1>
 
-<img src="265d1c0c-637f-4a92-a396-1587f849c95f.png"
-alt="Sleek Oval Glassware Vase">
+      <p>
+        Crafted for Calm. Made for You.
+      </p>
 
-<div class="product-info">
-<div class="product-name">
-Sleek Oval Glassware Vase
-</div>
+      <a href="#collection" class="btn">
+        Explore Collection
+      </a>
 
-<div class="price">
-<div class="price">
-  <span style="text-decoration: line-through; color:#888;">₹1,599</span>
-  <strong style="margin-left:8px;">₹1,199</strong>
-  <span style="margin-left:8px; font-size:11px; color:#777;">25% OFF</span>
-</div>
-</div>
-</div>
+    </div>
+  </header>
 
-</article>
 
-<article class="product">
+  <!-- COLLECTION -->
 
-<img src="D04185F2-E42E-40F6-8C4F-E76BD91C139E.png"
-alt="Round Glass Centerpiece Fish Bowl">
+  <section id="collection">
 
-<div class="product-info">
-  <div class="product-name">
-    Round Glass Centerpiece Fish Bowl
-  </div>
+    <div class="label">
+      The Collection
+    </div>
 
-  <label style="display:block; margin:15px 0 8px; font:12px Arial,sans-serif; color:#666;">
-    Select Size
-  </label>
-<select id="fishBowlSize"
-        onchange="updateFishBowlPrice()"
-        style="padding:10px 14px; width:100%; border:1px solid #ccc; background:white; font:13px Arial,sans-serif;">
-  <option value="999" data-mrp="1299">8 Inch</option>
-  <option value="1399" data-mrp="1799">10 Inch</option>
-</select>
+    <h2>
+      Objects with presence.
+    </h2>
 
-<div class="price" id="fishBowlPrice" style="margin-top:14px;">
-  <span style="text-decoration:line-through; color:#888;">₹1,299</span>
-  <strong style="margin-left:8px;">₹999</strong>
-  <span style="margin-left:8px; font-size:11px; color:#777;">23% OFF</span>
-</div>
+    <div class="products">
+
+      <!-- PRODUCT 1 -->
+
+      <article class="product">
+
+        <div class="product-image-wrap">
+          <img
+            src="265d1c0c-637f-4a92-a396-1587f849c95f.png"
+            alt="Sleek Oval Glassware Vase"
+          >
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-name">
+            Sleek Oval Glassware Vase
+          </div>
+
+          <div class="price">
+            <span class="old-price">₹1,599</span>
+            <strong class="sale-price">₹1,199</strong>
+            <span class="discount">25% OFF</span>
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- PRODUCT 2 -->
+
+      <article class="product">
+
+        <div class="product-image-wrap">
+          <img
+            src="D04185F2-E42E-40F6-8C4F-E76BD91C139E.png"
+            alt="Round Glass Centerpiece Fish Bowl"
+          >
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-name">
+            Round Glass Centerpiece Fish Bowl
+          </div>
+
+          <label
+            class="size-label"
+            for="fishBowlSize"
+          >
+            Select Size
+          </label>
+
+          <select
+            id="fishBowlSize"
+            class="size-select"
+            onchange="updateFishBowlPrice()"
+          >
+            <option value="999" data-mrp="1299">
+              8 Inch
+            </option>
+
+            <option value="1399" data-mrp="1799">
+              10 Inch
+            </option>
+          </select>
+
+          <div
+            class="price"
+            id="fishBowlPrice"
+            style="margin-top:14px;"
+          >
+            <span class="old-price">₹1,299</span>
+            <strong class="sale-price">₹999</strong>
+            <span class="discount">23% OFF</span>
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- STORY -->
+
+  <section class="story" id="story">
+
+    <img
+      src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=90"
+      alt="Luxury interior"
+    >
+
+    <div>
+
+      <div
+        class="label"
+        style="color:#aaa;"
+      >
+        Our Story
+      </div>
+
+      <h2>
+        Made to make a space feel like yours.
+      </h2>
+
+      <p>
+        Velonte brings together timeless design, thoughtful craftsmanship
+        and the quiet beauty of glass. Born from the rich glassmaking
+        heritage of Firozabad, every piece is designed to bring warmth,
+        character and calm into everyday spaces.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section
+    id="contact"
+    class="contact"
+  >
+
+    <div class="label">
+      Connect With Velonte
+    </div>
+
+    <h2>
+      Let's create something beautiful.
+    </h2>
+
+    <p>
+      For product enquiries and collaborations,
+      get in touch with us.
+    </p>
+
+    <a
+      href="mailto:contact@velonte.in"
+      class="btn dark"
+    >
+      Contact Us
+    </a>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-logo">
+      VELONTE
+    </div>
+
+    © 2026 VELONTE. All rights reserved.
+
+  </footer>
+
+
+  <!-- FISH BOWL PRICE SCRIPT -->
+
   <script>
-function updateFishBowlPrice() {
-  const select = document.getElementById("fishBowlSize");
-  const option = select.options[select.selectedIndex];
+    function updateFishBowlPrice() {
+      const select = document.getElementById("fishBowlSize");
+      const option = select.options[select.selectedIndex];
 
-  const selling = option.value;
-  const mrp = option.getAttribute("data-mrp");
+      const selling = Number(option.value);
+      const mrp = Number(option.getAttribute("data-mrp"));
 
-  const discount = Math.round((1 - Number(selling) / Number(mrp)) * 100);
+      const discount = Math.round(
+        (1 - selling / mrp) * 100
+      );
 
-  document.getElementById("fishBowlPrice").innerHTML =
-    '<span style="text-decoration:line-through; color:#888;">₹' + mrp + '</span>' +
-    '<strong style="margin-left:8px;">₹' + selling + '</strong>' +
-    '<span style="margin-left:8px; font-size:11px; color:#777;">' +
-    discount + '% OFF</span>';
-}
-</script>
-
-  <div class="price" id="fishBowlPrice" style="margin-top:14px;">
-    <span style="text-decoration:line-through; color:#888;">₹1,299</span>
-    <strong style="margin-left:8px;">₹999</strong>
-    <span style="margin-left:8px; font-size:11px; color:#777;">23% OFF</span>
-  </div>
-</div>
-</div>
-
-<div class="price">
-₹799
-</div>
-</div>
-
-</article>
-
-</div>
-</section>
-
-<section class="story" id="story">
-
-<img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=90"
-alt="Luxury interior">
-
-<div>
-
-<div class="label" style="color:#aaa">Our Story</div>
-
-<h2>Made to make a space feel like yours.</h2>
-
-<p>
-Velonte brings together timeless design, thoughtful craftsmanship
-and the quiet beauty of glass. Born from the rich glassmaking
-heritage of Firozabad, every piece is designed to bring warmth,
-character and calm into everyday spaces.
-</p>
-
-</div>
-
-</section>
-
-<section id="contact" class="contact">
-
-<div class="label">Connect With Velonte</div>
-
-<h2>Let's create something beautiful.</h2>
-
-<p>For product enquiries and collaborations, get in touch with us.</p>
-
-<a href="mailto:contact@velonte.in" class="btn dark">
-Contact Us
-</a>
-
-</section>
-
-<footer>
-<div class="footer-logo">VELONTE</div>
-© 2026 VELONTE. All rights reserved.
-</footer>
+      document.getElementById("fishBowlPrice").innerHTML =
+        '<span class="old-price">₹' + mrp.toLocaleString("en-IN") + '</span>' +
+        '<strong class="sale-price">₹' + selling.toLocaleString("en-IN") + '</strong>' +
+        '<span class="discount">' + discount + '% OFF</span>';
+    }
+  </script>
 
 </body>
 </html>
