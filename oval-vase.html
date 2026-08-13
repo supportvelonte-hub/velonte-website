@@ -1,1 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>VELONTE — Sleek Oval Glassware Vase</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .product-page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 130px 7% 90px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 35px;
+      font: 12px Arial, sans-serif;
+      letter-spacing: 1px;
+      color: #777;
+    }
+
+    .product-detail {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .product-detail-image {
+      background: #ebe7df;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-detail-image img {
+      width: 100%;
+      height: 600px;
+      object-fit: contain;
+      padding: 35px;
+    }
+
+    .product-detail-info {
+      padding-top: 20px;
+    }
+
+    .product-detail-label {
+      font: 10px Arial, sans-serif;
+      letter-spacing: 3px;
+      color: #777;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .product-detail-info h1 {
+      font-size: clamp(40px, 5vw, 68px);
+      font-weight: 400;
+      line-height: 1.08;
+      margin-bottom: 25px;
+    }
+
+    .product-detail-price {
+      font: 15px Arial, sans-serif;
+      margin-bottom: 30px;
+    }
+
+    .product-detail-price .old {
+      text-decoration: line-through;
+      color: #888;
+    }
+
+    .product-detail-price .sale {
+      margin-left: 10px;
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .product-detail-price .off {
+      margin-left: 10px;
+      font-size: 11px;
+      color: #777;
+    }
+
+    .product-description {
+      font: 15px Arial, sans-serif;
+      line-height: 1.9;
+      color: #666;
+      margin-bottom: 35px;
+      max-width: 520px;
+    }
+
+    .buy-button {
+      display: inline-block;
+      padding: 16px 32px;
+      background: #111;
+      color: white;
+      border: 1px solid #111;
+      font: 11px Arial, sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .buy-button:hover {
+      background: transparent;
+      color: #111;
+    }
+
+    .product-note {
+      margin-top: 22px;
+      font: 12px Arial, sans-serif;
+      color: #888;
+    }
+
+    @media (max-width: 800px) {
+      .product-page {
+        padding: 110px 5% 70px;
+      }
+
+      .product-detail {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .product-detail-image {
+        min-height: auto;
+      }
+
+      .product-detail-image img {
+        height: 460px;
+      }
+
+      .product-detail-info h1 {
+        font-size: 43px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="product-page">
+
+    <a href="index.html#collection" class="back-link">
+      ← Back to Collection
+    </a>
+
+    <div class="product-detail">
+
+      <div class="product-detail-image">
+        <img
+          src="IMG_0371.png"
+          alt="Sleek Oval Glassware Vase"
+        >
+      </div>
+
+      <div class="product-detail-info">
+
+        <div class="product-detail-label">
+          VELONTE Collection
+        </div>
+
+        <h1>
+          Sleek Oval Glassware Vase
+        </h1>
+
+        <div class="product-detail-price">
+          <span class="old">₹1,599</span>
+          <strong class="sale">₹1,199</strong>
+          <span class="off">25% OFF</span>
+        </div>
+
+        <p class="product-description">
+          A refined oval glass vase designed to bring effortless
+          elegance and a sophisticated touch to your space. Its
+          clean silhouette makes it a beautiful addition to dining
+          tables, consoles, coffee tables and modern interiors.
+        </p>
+
+        <button
+          class="buy-button"
+          onclick="buyNow()"
+        >
+          Buy Now
+        </button>
+
+        <div class="product-note">
+          Secure checkout and Cash on Delivery will be added next.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function buyNow() {
+      alert(
+        "VELONTE\n\n" +
+        "Sleek Oval Glassware Vase\n" +
+        "Price: ₹1,199\n\n" +
+        "Checkout will be connected next."
+      );
+    }
+  </script>
+
+</body>
+</html>
