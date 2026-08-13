@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>VELONTE — Modern Luxury Home Décor</title>
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
+
   <style>
     * {
       box-sizing: border-box;
@@ -155,6 +156,10 @@
       overflow: hidden;
     }
 
+    .product-image-link {
+      display: block;
+    }
+
     .product-image-wrap {
       width: 100%;
       height: 520px;
@@ -233,6 +238,26 @@
 
     .size-select:focus {
       border-color: #777;
+    }
+
+    .buy-button {
+      display: inline-block;
+      width: 100%;
+      margin-top: 18px;
+      padding: 14px 30px;
+      border: 1px solid #111;
+      background: #111;
+      color: white;
+      font: 11px Arial, sans-serif;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .buy-button:hover {
+      background: transparent;
+      color: #111;
     }
 
     /* STORY */
@@ -405,14 +430,16 @@
 
       <!-- PRODUCT 1 -->
 
-      <article class="product" onclick="window.location.href='oval-vase.html';" style="cursor:pointer;">
+      <article class="product">
 
-        <div class="product-image-wrap">
-          <img
-            src="265d1c0c-637f-4a92-a396-1587f849c95f.png"
-            alt="Sleek Oval Glassware Vase"
-          >
-        </div>
+        <a href="oval-vase.html" class="product-image-link">
+          <div class="product-image-wrap">
+            <img
+              src="265d1c0c-637f-4a92-a396-1587f849c95f.png"
+              alt="Sleek Oval Glassware Vase"
+            >
+          </div>
+        </a>
 
         <div class="product-info">
 
@@ -426,6 +453,13 @@
             <span class="discount">25% OFF</span>
           </div>
 
+          <button
+            class="buy-button"
+            onclick="window.location.href='oval-vase.html';"
+          >
+            Buy Now
+          </button>
+
         </div>
 
       </article>
@@ -433,22 +467,17 @@
 
       <!-- PRODUCT 2 -->
 
-      <<article class="product">
+      <article class="product">
 
-        <div class="product-image-wrap">
-          <img
-            src="D04185F2-E42E-40F6-8C4F-E76BD91C139E.png"
-            alt="Round Glass Centerpiece Fish Bowl"
-          >
-        </div>
-<a href="product.html">
-  <div class="product-image-wrap">
-    <img
-      src="D04185F2-E42E-40F6-8C4F-E76BD91C139E.png"
-      alt="Round Glass Centerpiece Fish Bowl"
-    >
-  </div>
-</a>
+        <a href="product.html" class="product-image-link">
+          <div class="product-image-wrap">
+            <img
+              src="D04185F2-E42E-40F6-8C4F-E76BD91C139E.png"
+              alt="Round Glass Centerpiece Fish Bowl"
+            >
+          </div>
+        </a>
+
         <div class="product-info">
 
           <div class="product-name">
@@ -485,6 +514,118 @@
             <strong class="sale-price">₹999</strong>
             <span class="discount">23% OFF</span>
           </div>
+
+          <button
+            class="buy-button"
+            onclick="buyFishBowl();"
+          >
+            Buy Now
+          </button>
+
+        </div>
+
+      </article>
+
+
+      <!-- TEMPORARY PRODUCT 3 -->
+
+      <article class="product">
+
+        <div class="product-image-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1200&q=85"
+            alt="Elegant Glass Decorative Bowl"
+          >
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-name">
+            Sculptural Glass Bowl
+          </div>
+
+          <div class="price">
+            <span class="old-price">₹1,499</span>
+            <strong class="sale-price">₹1,099</strong>
+            <span class="discount">27% OFF</span>
+          </div>
+
+          <button
+            class="buy-button"
+            onclick="temporaryBuy('Sculptural Glass Bowl', 1099);"
+          >
+            Buy Now
+          </button>
+
+        </div>
+
+      </article>
+
+
+      <!-- TEMPORARY PRODUCT 4 -->
+
+      <article class="product">
+
+        <div class="product-image-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1603204077779-bed963ea7d0e?auto=format&fit=crop&w=1200&q=85"
+            alt="Minimal Glass Table Decor"
+          >
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-name">
+            Minimal Glass Table Decor
+          </div>
+
+          <div class="price">
+            <span class="old-price">₹1,699</span>
+            <strong class="sale-price">₹1,249</strong>
+            <span class="discount">26% OFF</span>
+          </div>
+
+          <button
+            class="buy-button"
+            onclick="temporaryBuy('Minimal Glass Table Decor', 1249);"
+          >
+            Buy Now
+          </button>
+
+        </div>
+
+      </article>
+
+
+      <!-- TEMPORARY PRODUCT 5 -->
+
+      <article class="product">
+
+        <div class="product-image-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=1200&q=85"
+            alt="Premium Glass Vase"
+          >
+        </div>
+
+        <div class="product-info">
+
+          <div class="product-name">
+            Contour Glass Vase
+          </div>
+
+          <div class="price">
+            <span class="old-price">₹1,799</span>
+            <strong class="sale-price">₹1,299</strong>
+            <span class="discount">28% OFF</span>
+          </div>
+
+          <button
+            class="buy-button"
+            onclick="temporaryBuy('Contour Glass Vase', 1299);"
+          >
+            Buy Now
+          </button>
 
         </div>
 
@@ -587,11 +728,42 @@
       );
 
       document.getElementById("fishBowlPrice").innerHTML =
-        '<span class="old-price">₹' + mrp.toLocaleString("en-IN") + '</span>' +
-        '<strong class="sale-price">₹' + selling.toLocaleString("en-IN") + '</strong>' +
-        '<span class="discount">' + discount + '% OFF</span>';
+        '<span class="old-price">₹' +
+        mrp.toLocaleString("en-IN") +
+        '</span>' +
+        '<strong class="sale-price">₹' +
+        selling.toLocaleString("en-IN") +
+        '</strong>' +
+        '<span class="discount">' +
+        discount +
+        '% OFF</span>';
+    }
+
+    function buyFishBowl() {
+      const select = document.getElementById("fishBowlSize");
+      const option = select.options[select.selectedIndex];
+
+      const size = option.textContent.trim();
+      const price = Number(option.value);
+
+      window.location.href =
+        "product.html?size=" +
+        encodeURIComponent(size) +
+        "&price=" +
+        encodeURIComponent(price);
+    }
+
+    function temporaryBuy(name, price) {
+      alert(
+        "VELONTE\n\n" +
+        name +
+        "\nPrice: ₹" +
+        price.toLocaleString("en-IN") +
+        "\n\nThis product will be connected when the actual product is added."
+      );
     }
   </script>
-<script src="script.js"></script>
+
+  <script src="script.js"></script>
 </body>
 </html>
