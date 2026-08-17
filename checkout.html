@@ -1,35 +1,148 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VELONTE — Round Glass Centerpiece Fish Bowl</title>
+
+<title>VELONTE — Checkout</title>
 
 <style>
-body{font-family:Georgia,"Times New Roman",serif;background:#f5f2ec;color:#171717;margin:0}
-.product-page{max-width:1200px;margin:auto;padding:130px 7% 90px}
-.back-link{display:inline-block;margin-bottom:35px;font:12px Arial,sans-serif;letter-spacing:1px;color:#777;text-decoration:none}
-.product-detail{display:grid;grid-template-columns:1.05fr .95fr;gap:70px}
-.product-detail-image{background:#ebe7df;min-height:600px;display:flex;align-items:center;justify-content:center}
-.product-detail-image img{width:100%;height:600px;object-fit:contain;padding:35px}
-.label{font:10px Arial,sans-serif;letter-spacing:3px;color:#777;text-transform:uppercase;margin-bottom:15px}
-h1{font-size:clamp(40px,5vw,68px);font-weight:400;line-height:1.08;margin:0 0 25px}
-.price{font:15px Arial,sans-serif;margin-bottom:30px}
-.old{text-decoration:line-through;color:#888}
-.sale{margin-left:10px;font-size:19px}
-.off{margin-left:10px;font-size:11px;color:#777}
-.description{font:15px Arial,sans-serif;line-height:1.9;color:#666;margin-bottom:35px;max-width:520px}
-.size-label{display:block;font:11px Arial,sans-serif;letter-spacing:1px;color:#666;text-transform:uppercase;margin-bottom:9px}
-select{width:100%;max-width:350px;padding:13px 14px;border:1px solid #ccc;background:white;font:13px Arial,sans-serif;margin-bottom:18px}
+*{box-sizing:border-box}
 
-/* QUANTITY */
-.quantity-label{
+body{
+  margin:0;
+  background:#f5f2ec;
+  color:#171717;
+  font-family:Georgia,"Times New Roman",serif;
+}
+
+.checkout-page{
+  max-width:1100px;
+  margin:auto;
+  padding:90px 6%;
+}
+
+.back-link{
+  display:inline-block;
+  margin-bottom:35px;
+  color:#777;
+  text-decoration:none;
+  font:12px Arial,sans-serif;
+  letter-spacing:1px;
+}
+
+.checkout-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:start;
+}
+
+.checkout-title{
+  font-size:clamp(40px,5vw,62px);
+  font-weight:400;
+  line-height:1.08;
+  margin:0 0 35px;
+}
+
+.section-label{
+  font:10px Arial,sans-serif;
+  letter-spacing:3px;
+  color:#777;
+  text-transform:uppercase;
+  margin-bottom:15px;
+}
+
+.product-card{
+  background:#ebe7df;
+  padding:25px;
+}
+
+.product-image{
+  width:100%;
+  height:420px;
+  background:#f5f2ec;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:25px;
+}
+
+.product-image img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:25px;
+}
+
+.product-name{
+  font-size:24px;
+  line-height:1.2;
+  margin-bottom:15px;
+}
+
+.product-detail{
+  font:13px Arial,sans-serif;
+  color:#777;
+  line-height:1.8;
+}
+
+.product-price{
+  margin-top:15px;
+  font:14px Arial,sans-serif;
+}
+
+.product-price strong{
+  font-size:20px;
+  margin-left:8px;
+}
+
+.form-box{
+  background:#fff;
+  padding:30px;
+  border:1px solid #ddd;
+}
+
+.form-title{
+  font-size:25px;
+  font-weight:400;
+  margin-bottom:25px;
+}
+
+.field{
+  margin-bottom:17px;
+}
+
+.field label{
   display:block;
+  margin-bottom:7px;
   font:11px Arial,sans-serif;
   letter-spacing:1px;
   color:#666;
   text-transform:uppercase;
-  margin-bottom:9px;
+}
+
+.field input,
+.field textarea,
+.field select{
+  width:100%;
+  padding:13px 14px;
+  border:1px solid #ccc;
+  background:#fff;
+  outline:none;
+  font:13px Arial,sans-serif;
+}
+
+.field textarea{
+  min-height:90px;
+  resize:vertical;
+}
+
+.state-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
 }
 
 .quantity-box{
@@ -38,22 +151,16 @@ select{width:100%;max-width:350px;padding:13px 14px;border:1px solid #ccc;backgr
   width:140px;
   height:45px;
   border:1px solid #ccc;
-  background:white;
-  margin-bottom:12px;
+  background:#fff;
 }
 
 .quantity-box button{
   width:42px;
   height:100%;
   border:0;
-  background:white;
-  font:18px Arial,sans-serif;
+  background:#fff;
+  font-size:18px;
   cursor:pointer;
-  color:#171717;
-}
-
-.quantity-box button:hover{
-  background:#f5f2ec;
 }
 
 .quantity-box span{
@@ -62,87 +169,242 @@ select{width:100%;max-width:350px;padding:13px 14px;border:1px solid #ccc;backgr
   font:13px Arial,sans-serif;
 }
 
-.quantity-offer{
+.offer{
+  margin:10px 0 20px;
   font:11px Arial,sans-serif;
   color:#777;
-  margin-bottom:22px;
 }
 
-.buy-button{padding:16px 32px;background:#111;color:#fff;border:1px solid #111;font:11px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
-.buy-button:hover{background:transparent;color:#111}
-.note{margin-top:22px;font:12px Arial,sans-serif;color:#888}
+.summary{
+  border-top:1px solid #ddd;
+  margin-top:25px;
+  padding-top:20px;
+}
+
+.summary-row{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:12px;
+  font:13px Arial,sans-serif;
+  color:#666;
+}
+
+.summary-row.total{
+  margin-top:15px;
+  padding-top:15px;
+  border-top:1px solid #ddd;
+  color:#111;
+  font-size:16px;
+}
+
+.place-order{
+  width:100%;
+  margin-top:25px;
+  padding:17px;
+  border:1px solid #111;
+  background:#111;
+  color:#fff;
+  cursor:pointer;
+  font:11px Arial,sans-serif;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+.place-order:hover{
+  background:transparent;
+  color:#111;
+}
+
+.note{
+  margin-top:18px;
+  text-align:center;
+  font:11px Arial,sans-serif;
+  color:#999;
+  line-height:1.6;
+}
 
 @media(max-width:800px){
-  .product-page{padding:110px 5% 70px}
-  .product-detail{grid-template-columns:1fr;gap:35px}
-  .product-detail-image{min-height:auto}
-  .product-detail-image img{height:460px}
-  h1{font-size:43px}
+  .checkout-page{
+    padding:60px 5%;
+  }
+
+  .checkout-grid{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+
+  .product-image{
+    height:360px;
+  }
+
+  .state-row{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="product-page">
+<div class="checkout-page">
 
 <a href="index.html#collection" class="back-link">
 ← Back to Collection
 </a>
 
-<div class="product-detail">
+<div class="checkout-grid">
 
-<div class="product-detail-image">
-<img
-src="D04185F2-E42E-40F6-8C4F-E76BD91C139E.png"
-alt="Round Glass Centerpiece Fish Bowl">
-</div>
-
+<!-- PRODUCT -->
 <div>
 
-<div class="label">
-VELONTE Collection
+<div class="section-label">
+Your Selection
 </div>
 
-<h1>
-Round Glass Centerpiece Fish Bowl
+<h1 class="checkout-title">
+Checkout
 </h1>
 
-<div class="price" id="detailPrice">
-<span class="old">₹1,299</span>
-<strong class="sale">₹999</strong>
-<span class="off">23% OFF</span>
+<div class="product-card">
+
+<div class="product-image">
+<img id="productImage" src="" alt="">
 </div>
 
-<p class="description">
-A timeless glass centerpiece designed to bring effortless elegance
-and a refined touch to your space. Its graceful rounded silhouette
-makes it ideal for dining tables, consoles, coffee tables and
-modern interiors.
-</p>
+<div class="product-name" id="productName">
+Loading product...
+</div>
 
-<label class="size-label" for="detailSize">
-Select Size
-</label>
+<div class="product-detail">
+<div id="productSize"></div>
+<div id="productQuantity"></div>
+</div>
 
-<select id="detailSize" onchange="updateDetailPrice()">
+<div class="product-price">
+<span>Price:</span>
+<strong id="productPrice">₹0</strong>
+</div>
 
-<option value="999" data-mrp="1299">
-8 Inch
-</option>
+</div>
 
-<option value="1399" data-mrp="1799">
-10 Inch
-</option>
+</div>
 
+
+<!-- CUSTOMER DETAILS -->
+<div>
+
+<div class="form-box">
+
+<div class="section-label">
+Delivery Details
+</div>
+
+<div class="form-title">
+Complete Your Order
+</div>
+
+<form id="checkoutForm">
+
+<div class="field">
+<label for="customerName">Full Name</label>
+<input
+type="text"
+id="customerName"
+placeholder="Your full name"
+required>
+</div>
+
+<div class="field">
+<label for="mobile">Mobile Number</label>
+<input
+type="tel"
+id="mobile"
+inputmode="numeric"
+maxlength="10"
+pattern="[0-9]{10}"
+placeholder="10-digit mobile number"
+required>
+</div>
+
+<div class="field">
+<label for="email">Email Address</label>
+<input
+type="email"
+id="email"
+placeholder="Your email address"
+required>
+</div>
+
+<div class="field">
+<label for="address">Address</label>
+<textarea
+id="address"
+placeholder="House / Flat, Street, Area"
+required></textarea>
+</div>
+
+<div class="state-row">
+
+<div class="field">
+<label for="state">State</label>
+
+<select id="state" required>
+<option value="">Select State</option>
+<option>Andhra Pradesh</option>
+<option>Arunachal Pradesh</option>
+<option>Assam</option>
+<option>Bihar</option>
+<option>Chhattisgarh</option>
+<option>Goa</option>
+<option>Gujarat</option>
+<option>Haryana</option>
+<option>Himachal Pradesh</option>
+<option>Jharkhand</option>
+<option>Karnataka</option>
+<option>Kerala</option>
+<option>Madhya Pradesh</option>
+<option>Maharashtra</option>
+<option>Manipur</option>
+<option>Meghalaya</option>
+<option>Mizoram</option>
+<option>Nagaland</option>
+<option>Odisha</option>
+<option>Punjab</option>
+<option>Rajasthan</option>
+<option>Sikkim</option>
+<option>Tamil Nadu</option>
+<option>Telangana</option>
+<option>Tripura</option>
+<option>Uttar Pradesh</option>
+<option>Uttarakhand</option>
+<option>West Bengal</option>
+<option>Delhi</option>
+<option>Jammu and Kashmir</option>
+<option>Ladakh</option>
+<option>Chandigarh</option>
+<option>Puducherry</option>
 </select>
 
+</div>
 
-<!-- QUANTITY -->
+<div class="field">
+<label for="pincode">PIN Code</label>
+<input
+type="text"
+id="pincode"
+inputmode="numeric"
+maxlength="6"
+pattern="[0-9]{6}"
+placeholder="6-digit PIN"
+required>
+</div>
 
-<label class="quantity-label">
-Quantity
-</label>
+</div>
+
+
+<div class="field">
+
+<label>Quantity</label>
 
 <div class="quantity-box">
 
@@ -152,9 +414,7 @@ onclick="changeQuantity(-1)">
 −
 </button>
 
-<span id="quantity">
-1
-</span>
+<span id="quantity">1</span>
 
 <button
 type="button"
@@ -164,20 +424,55 @@ onclick="changeQuantity(1)">
 
 </div>
 
-<div class="quantity-offer">
+<div class="offer">
 Buy 2 or more & get 5% OFF
+</div>
+
+</div>
+
+
+<div class="summary">
+
+<div class="summary-row">
+<span>Product</span>
+<span id="summaryProduct">₹0</span>
+</div>
+
+<div class="summary-row">
+<span>Quantity</span>
+<span id="summaryQuantity">1</span>
+</div>
+
+<div class="summary-row">
+<span>Discount</span>
+<span id="summaryDiscount">₹0</span>
+</div>
+
+<div class="summary-row">
+<span>Shipping</span>
+<span>FREE</span>
+</div>
+
+<div class="summary-row total">
+<span>Total</span>
+<strong id="summaryTotal">₹0</strong>
+</div>
+
 </div>
 
 
 <button
-class="buy-button"
-type="button"
-onclick="buyNow()">
-Buy Now
+type="submit"
+class="place-order">
+Place Order
 </button>
 
 <div class="note">
-Secure checkout and online payment via Razorpay.
+Secure checkout. Payment options will be connected through Razorpay.
+</div>
+
+</form>
+
 </div>
 
 </div>
@@ -189,44 +484,89 @@ Secure checkout and online payment via Razorpay.
 
 <script>
 
-let quantity = 1;
+let params = new URLSearchParams(window.location.search);
+
+let product =
+params.get("product") || "VELONTE Product";
+
+let price =
+Number(params.get("price")) || 0;
+
+let image =
+params.get("image") || "";
+
+let size =
+params.get("size") || "";
+
+let quantity =
+Number(params.get("quantity")) || 1;
+
+if(quantity < 1){
+quantity = 1;
+}
 
 
-/* UPDATE PRICE */
+/* PRODUCT DISPLAY */
 
-function updateDetailPrice(){
+document.getElementById("productName").textContent =
+product;
 
-const s =
-document.getElementById("detailSize");
+document.getElementById("productPrice").textContent =
+"₹" + price.toLocaleString("en-IN");
 
-const o =
-s.options[s.selectedIndex];
+document.getElementById("productSize").textContent =
+size ? "Size: " + size : "";
 
-const p =
-Number(o.value);
+document.getElementById("productQuantity").textContent =
+"Quantity: " + quantity;
 
-const m =
-Number(o.dataset.mrp);
+document.getElementById("productImage").src =
+image;
 
-const d =
-Math.round((1 - p / m) * 100);
+document.getElementById("productImage").alt =
+product;
+
+document.getElementById("quantity").textContent =
+quantity;
 
 
-document.getElementById("detailPrice").innerHTML =
+/* SUMMARY */
 
-'<span class="old">₹' +
-m.toLocaleString("en-IN") +
-'</span>' +
+function updateSummary(){
 
-'<strong class="sale">₹' +
-p.toLocaleString("en-IN") +
-'</strong>' +
+let subtotal =
+price * quantity;
 
-'<span class="off">' +
-d +
-'% OFF</span>';
+let discount = 0;
+
+if(quantity >= 2){
+discount =
+Math.round(subtotal * 0.05);
+}
+
+let total =
+subtotal - discount;
+
+document.getElementById("summaryProduct").textContent =
+"₹" + subtotal.toLocaleString("en-IN");
+
+document.getElementById("summaryQuantity").textContent =
+quantity;
+
+document.getElementById("summaryDiscount").textContent =
+discount > 0
+? "- ₹" + discount.toLocaleString("en-IN")
+: "₹0";
+
+document.getElementById("summaryTotal").textContent =
+"₹" + total.toLocaleString("en-IN");
+
+document.getElementById("productQuantity").textContent =
+"Quantity: " + quantity;
 
 }
+
+updateSummary();
 
 
 /* QUANTITY */
@@ -242,54 +582,78 @@ quantity = 1;
 document.getElementById("quantity").textContent =
 quantity;
 
+updateSummary();
+
+}
+
+
+/* FORM */
+
+document.getElementById("checkoutForm").addEventListener(
+"submit",
+function(e){
+
+e.preventDefault();
+
+const name =
+document.getElementById("customerName").value.trim();
+
+const mobile =
+document.getElementById("mobile").value.trim();
+
+const email =
+document.getElementById("email").value.trim();
+
+const address =
+document.getElementById("address").value.trim();
+
+const state =
+document.getElementById("state").value;
+
+const pincode =
+document.getElementById("pincode").value.trim();
+
+
+if(!/^[0-9]{10}$/.test(mobile)){
+alert("Please enter a valid 10-digit mobile number.");
+return;
+}
+
+if(!/^[0-9]{6}$/.test(pincode)){
+alert("Please enter a valid 6-digit PIN code.");
+return;
 }
 
 
-/* BUY NOW */
+const discount =
+quantity >= 2
+? Math.round(price * quantity * 0.05)
+: 0;
 
-function buyNow(){
-
-const s =
-document.getElementById("detailSize");
-
-const o =
-s.options[s.selectedIndex];
+const total =
+(price * quantity) - discount;
 
 
-const product =
-"Round Glass Centerpiece Fish Bowl";
+/*
+  TEMPORARY ORDER CONFIRMATION
 
-const price =
-o.value;
+  Razorpay can be connected here next.
+*/
 
-const size =
-o.textContent.trim();
+alert(
+"VELONTE\n\n" +
+"Order Details\n\n" +
+"Product: " + product + "\n" +
+(size ? "Size: " + size + "\n" : "") +
+"Quantity: " + quantity + "\n" +
+"Total: ₹" + total.toLocaleString("en-IN") + "\n\n" +
+"Thank you, " + name + "!"
+);
 
-const image =
-"D04185F2-E42E-40F6-8C4F-E76BD91C139E.png";
-
-
-window.location.href =
-"checkout.html" +
-
-"?product=" +
-encodeURIComponent(product) +
-
-"&price=" +
-encodeURIComponent(price) +
-
-"&image=" +
-encodeURIComponent(image) +
-
-"&size=" +
-encodeURIComponent(size) +
-
-"&quantity=" +
-encodeURIComponent(quantity);
-
-}
+});
 
 </script>
 
 </body>
 </html>
+```
