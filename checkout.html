@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VELONTE — Round Glass Centerpiece Fish Bowl</title>
+
 <style>
 body{font-family:Georgia,"Times New Roman",serif;background:#f5f2ec;color:#171717;margin:0}
 .product-page{max-width:1200px;margin:auto;padding:130px 7% 90px}
@@ -13,44 +14,282 @@ body{font-family:Georgia,"Times New Roman",serif;background:#f5f2ec;color:#17171
 .product-detail-image img{width:100%;height:600px;object-fit:contain;padding:35px}
 .label{font:10px Arial,sans-serif;letter-spacing:3px;color:#777;text-transform:uppercase;margin-bottom:15px}
 h1{font-size:clamp(40px,5vw,68px);font-weight:400;line-height:1.08;margin:0 0 25px}
-.price{font:15px Arial,sans-serif;margin-bottom:30px}.old{text-decoration:line-through;color:#888}.sale{margin-left:10px;font-size:19px}.off{margin-left:10px;font-size:11px;color:#777}
+.price{font:15px Arial,sans-serif;margin-bottom:30px}
+.old{text-decoration:line-through;color:#888}
+.sale{margin-left:10px;font-size:19px}
+.off{margin-left:10px;font-size:11px;color:#777}
 .description{font:15px Arial,sans-serif;line-height:1.9;color:#666;margin-bottom:35px;max-width:520px}
 .size-label{display:block;font:11px Arial,sans-serif;letter-spacing:1px;color:#666;text-transform:uppercase;margin-bottom:9px}
-select{width:100%;max-width:350px;padding:13px 14px;border:1px solid #ccc;background:white;font:13px Arial,sans-serif;margin-bottom:25px}
-.buy-button{padding:16px 32px;background:#111;color:#fff;border:1px solid #111;font:11px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;cursor:pointer}.buy-button:hover{background:transparent;color:#111}
+select{width:100%;max-width:350px;padding:13px 14px;border:1px solid #ccc;background:white;font:13px Arial,sans-serif;margin-bottom:18px}
+
+/* QUANTITY */
+.quantity-label{
+  display:block;
+  font:11px Arial,sans-serif;
+  letter-spacing:1px;
+  color:#666;
+  text-transform:uppercase;
+  margin-bottom:9px;
+}
+
+.quantity-box{
+  display:flex;
+  align-items:center;
+  width:140px;
+  height:45px;
+  border:1px solid #ccc;
+  background:white;
+  margin-bottom:12px;
+}
+
+.quantity-box button{
+  width:42px;
+  height:100%;
+  border:0;
+  background:white;
+  font:18px Arial,sans-serif;
+  cursor:pointer;
+  color:#171717;
+}
+
+.quantity-box button:hover{
+  background:#f5f2ec;
+}
+
+.quantity-box span{
+  flex:1;
+  text-align:center;
+  font:13px Arial,sans-serif;
+}
+
+.quantity-offer{
+  font:11px Arial,sans-serif;
+  color:#777;
+  margin-bottom:22px;
+}
+
+.buy-button{padding:16px 32px;background:#111;color:#fff;border:1px solid #111;font:11px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;cursor:pointer}
+.buy-button:hover{background:transparent;color:#111}
 .note{margin-top:22px;font:12px Arial,sans-serif;color:#888}
-@media(max-width:800px){.product-page{padding:110px 5% 70px}.product-detail{grid-template-columns:1fr;gap:35px}.product-detail-image{min-height:auto}.product-detail-image img{height:460px}h1{font-size:43px}}
+
+@media(max-width:800px){
+  .product-page{padding:110px 5% 70px}
+  .product-detail{grid-template-columns:1fr;gap:35px}
+  .product-detail-image{min-height:auto}
+  .product-detail-image img{height:460px}
+  h1{font-size:43px}
+}
 </style>
 </head>
+
 <body>
+
 <div class="product-page">
-<a href="index.html#collection" class="back-link">← Back to Collection</a>
+
+<a href="index.html#collection" class="back-link">
+← Back to Collection
+</a>
+
 <div class="product-detail">
-<div class="product-detail-image"><img src="D04185F2-E42E-40F6-8C4F-E76BD91C139E.png" alt="Round Glass Centerpiece Fish Bowl"></div>
+
+<div class="product-detail-image">
+<img
+src="D04185F2-E42E-40F6-8C4F-E76BD91C139E.png"
+alt="Round Glass Centerpiece Fish Bowl">
+</div>
+
 <div>
-<div class="label">VELONTE Collection</div>
-<h1>Round Glass Centerpiece Fish Bowl</h1>
-<div class="price" id="detailPrice"><span class="old">₹1,299</span><strong class="sale">₹999</strong><span class="off">23% OFF</span></div>
-<p class="description">A timeless glass centerpiece designed to bring effortless elegance and a refined touch to your space. Its graceful rounded silhouette makes it ideal for dining tables, consoles, coffee tables and modern interiors.</p>
-<label class="size-label" for="detailSize">Select Size</label>
+
+<div class="label">
+VELONTE Collection
+</div>
+
+<h1>
+Round Glass Centerpiece Fish Bowl
+</h1>
+
+<div class="price" id="detailPrice">
+<span class="old">₹1,299</span>
+<strong class="sale">₹999</strong>
+<span class="off">23% OFF</span>
+</div>
+
+<p class="description">
+A timeless glass centerpiece designed to bring effortless elegance
+and a refined touch to your space. Its graceful rounded silhouette
+makes it ideal for dining tables, consoles, coffee tables and
+modern interiors.
+</p>
+
+<label class="size-label" for="detailSize">
+Select Size
+</label>
+
 <select id="detailSize" onchange="updateDetailPrice()">
-<option value="999" data-mrp="1299">8 Inch</option>
-<option value="1399" data-mrp="1799">10 Inch</option>
-</select><br>
-<button class="buy-button" onclick="buyNow()">Buy Now</button>
-<div class="note">Secure checkout and online payment via Razorpay.</div>
+
+<option value="999" data-mrp="1299">
+8 Inch
+</option>
+
+<option value="1399" data-mrp="1799">
+10 Inch
+</option>
+
+</select>
+
+
+<!-- QUANTITY -->
+
+<label class="quantity-label">
+Quantity
+</label>
+
+<div class="quantity-box">
+
+<button
+type="button"
+onclick="changeQuantity(-1)">
+−
+</button>
+
+<span id="quantity">
+1
+</span>
+
+<button
+type="button"
+onclick="changeQuantity(1)">
++
+</button>
+
 </div>
+
+<div class="quantity-offer">
+Buy 2 or more & get 5% OFF
 </div>
+
+
+<button
+class="buy-button"
+type="button"
+onclick="buyNow()">
+Buy Now
+</button>
+
+<div class="note">
+Secure checkout and online payment via Razorpay.
 </div>
+
+</div>
+
+</div>
+
+</div>
+
+
 <script>
+
+let quantity = 1;
+
+
+/* UPDATE PRICE */
+
 function updateDetailPrice(){
-const s=document.getElementById("detailSize"),o=s.options[s.selectedIndex],p=Number(o.value),m=Number(o.dataset.mrp),d=Math.round((1-p/m)*100);
-document.getElementById("detailPrice").innerHTML='<span class="old">₹'+m.toLocaleString("en-IN")+'</span><strong class="sale">₹'+p.toLocaleString("en-IN")+'</strong><span class="off">'+d+'% OFF</span>';
+
+const s =
+document.getElementById("detailSize");
+
+const o =
+s.options[s.selectedIndex];
+
+const p =
+Number(o.value);
+
+const m =
+Number(o.dataset.mrp);
+
+const d =
+Math.round((1 - p / m) * 100);
+
+
+document.getElementById("detailPrice").innerHTML =
+
+'<span class="old">₹' +
+m.toLocaleString("en-IN") +
+'</span>' +
+
+'<strong class="sale">₹' +
+p.toLocaleString("en-IN") +
+'</strong>' +
+
+'<span class="off">' +
+d +
+'% OFF</span>';
+
 }
+
+
+/* QUANTITY */
+
+function changeQuantity(change){
+
+quantity += change;
+
+if(quantity < 1){
+quantity = 1;
+}
+
+document.getElementById("quantity").textContent =
+quantity;
+
+}
+
+
+/* BUY NOW */
+
 function buyNow(){
-const s=document.getElementById("detailSize"),o=s.options[s.selectedIndex];
-window.location.href="checkout.html?product="+encodeURIComponent("Round Glass Centerpiece Fish Bowl")+"&price="+o.value+"&image="+encodeURIComponent("D04185F2-E42E-40F6-8C4F-E76BD91C139E.png")+"&size="+encodeURIComponent(o.textContent.trim());
+
+const s =
+document.getElementById("detailSize");
+
+const o =
+s.options[s.selectedIndex];
+
+
+const product =
+"Round Glass Centerpiece Fish Bowl";
+
+const price =
+o.value;
+
+const size =
+o.textContent.trim();
+
+const image =
+"D04185F2-E42E-40F6-8C4F-E76BD91C139E.png";
+
+
+window.location.href =
+"checkout.html" +
+
+"?product=" +
+encodeURIComponent(product) +
+
+"&price=" +
+encodeURIComponent(price) +
+
+"&image=" +
+encodeURIComponent(image) +
+
+"&size=" +
+encodeURIComponent(size) +
+
+"&quantity=" +
+encodeURIComponent(quantity);
+
 }
+
 </script>
+
 </body>
 </html>
