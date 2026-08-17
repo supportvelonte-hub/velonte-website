@@ -1,769 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>VELONTE — Modern Luxury Home Décor</title>
-  <link rel="stylesheet" href="style.css">
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      background: #f5f2ec;
-      color: #171717;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* NAVIGATION */
-
-    nav {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 28px 6%;
-      color: white;
-      z-index: 5;
-    }
-
-    .logo {
-      font-size: 23px;
-      letter-spacing: 7px;
-      white-space: nowrap;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 30px;
-      list-style: none;
-      font: 12px Arial, sans-serif;
-      letter-spacing: 1.5px;
-    }
-
-    .nav-links a {
-      transition: opacity 0.25s ease;
-    }
-
-    .nav-links a:hover {
-      opacity: 0.65;
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      padding: 100px 6% 70px;
-
-      background:
-        linear-gradient(
-          rgba(0, 0, 0, 0.35),
-          rgba(0, 0, 0, 0.50)
-        ),
-        url("https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=2000&q=90")
-        center / cover no-repeat;
-    }
-
-    .hero-content {
-      max-width: 900px;
-    }
-
-    .hero .label {
-      color: white;
-    }
-
-    .hero h1 {
-      font-size: clamp(55px, 10vw, 120px);
-      font-weight: 400;
-      letter-spacing: 12px;
-    }
-
-    .hero p {
-      font-style: italic;
-      font-size: 18px;
-      margin: 15px 0 30px;
-    }
-
-    .btn {
-      display: inline-block;
-      border: 1px solid white;
-      padding: 14px 30px;
-      color: white;
-      font: 11px Arial, sans-serif;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: all 0.3s ease;
-    }
-
-    .btn:hover {
-      background: white;
-      color: #111;
-    }
-
-    /* GENERAL SECTIONS */
-
-    section {
-      padding: 90px 7%;
-    }
-
-    .label {
-      font: 10px Arial, sans-serif;
-      letter-spacing: 3px;
-      color: #777;
-      text-transform: uppercase;
-      margin-bottom: 15px;
-    }
-
-    h2 {
-      font-size: clamp(38px, 5vw, 60px);
-      font-weight: 400;
-      margin-bottom: 45px;
-    }
-
-    /* PRODUCTS */
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-    }
-
-    .product {
-      background: #ebe7df;
-      overflow: hidden;
-    }
-
-    .product-image-link {
-      display: block;
-    }
-
-    .product-image-wrap {
-      width: 100%;
-      height: 520px;
-      background: #ebe7df;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .product img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-      display: block;
-      padding: 24px;
-      transition: transform 0.5s ease;
-    }
-
-    .product:hover img {
-      transform: scale(1.025);
-    }
-
-    .product-info {
-      padding: 22px;
-      background: #ebe7df;
-    }
-
-    .product-name {
-      font-size: 21px;
-      margin-bottom: 16px;
-    }
-
-    .price {
-      font: 13px Arial, sans-serif;
-      color: #777;
-    }
-
-    .old-price {
-      text-decoration: line-through;
-      color: #888;
-    }
-
-    .sale-price {
-      margin-left: 8px;
-      color: #171717;
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    .discount {
-      margin-left: 8px;
-      font-size: 11px;
-      color: #777;
-      letter-spacing: 0.5px;
-    }
-
-    .size-label {
-      display: block;
-      margin: 15px 0 8px;
-      font: 12px Arial, sans-serif;
-      color: #666;
-    }
-
-    .size-select {
-      width: 100%;
-      padding: 11px 14px;
-      border: 1px solid #ccc;
-      background: white;
-      color: #171717;
-      font: 13px Arial, sans-serif;
-      outline: none;
-      cursor: pointer;
-    }
-
-    .size-select:focus {
-      border-color: #777;
-    }
-
-    .buy-button {
-      display: inline-block;
-      width: 100%;
-      margin-top: 18px;
-      padding: 14px 30px;
-      border: 1px solid #111;
-      background: #111;
-      color: white;
-      font: 11px Arial, sans-serif;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .buy-button:hover {
-      background: transparent;
-      color: #111;
-    }
-
-    /* STORY */
-
-    .story {
-      background: #191917;
-      color: white;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .story img {
-      width: 100%;
-      height: 550px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .story h2 {
-      font-size: clamp(40px, 5vw, 65px);
-      line-height: 1.08;
-    }
-
-    .story p {
-      font: 15px Arial, sans-serif;
-      color: #c8c7c2;
-      line-height: 1.9;
-      max-width: 500px;
-    }
-
-    /* CONTACT */
-
-    .contact {
-      text-align: center;
-    }
-
-    .contact h2 {
-      max-width: 800px;
-      margin: 0 auto 25px;
-    }
-
-    .contact p {
-      font: 14px Arial, sans-serif;
-      color: #777;
-      margin-bottom: 30px;
-    }
-
-    .dark {
-      color: #111;
-      border-color: #111;
-    }
-
-    .dark:hover {
-      background: #111;
-      color: white;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: #111;
-      color: white;
-      padding: 50px 7%;
-      font: 11px Arial, sans-serif;
-    }
-
-    .footer-logo {
-      font-family: Georgia, serif;
-      font-size: 22px;
-      letter-spacing: 6px;
-      margin-bottom: 25px;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 700px) {
-      .nav-links {
-        display: none;
-      }
-
-      nav {
-        padding: 22px 5%;
-      }
-
-      .hero {
-        min-height: 82vh;
-        padding: 90px 5% 60px;
-      }
-
-      .hero h1 {
-        letter-spacing: 7px;
-      }
-
-      section {
-        padding: 70px 5%;
-      }
-
-      .products {
-        grid-template-columns: 1fr;
-      }
-
-      .product-image-wrap {
-        height: 430px;
-      }
-
-      .story {
-        grid-template-columns: 1fr;
-      }
-
-      .story img {
-        height: 420px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VELONTE — Modern Luxury Home Décor</title>
+<link rel="stylesheet" href="style.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,"Times New Roman",serif;background:#f5f2ec;color:#171717;line-height:1.6}
+a{color:inherit;text-decoration:none}
+nav{position:absolute;top:0;left:0;width:100%;display:flex;justify-content:space-between;align-items:center;padding:28px 6%;color:white;z-index:5}
+.logo{font-size:23px;letter-spacing:7px;white-space:nowrap}
+.nav-links{display:flex;gap:30px;list-style:none;font:12px Arial,sans-serif;letter-spacing:1.5px}
+.nav-links a:hover{opacity:.65}
+.hero{min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;color:white;padding:100px 6% 70px;background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.50)),url("https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=2000&q=90") center/cover no-repeat}
+.hero-content{max-width:900px}.hero .label{color:white}
+.hero h1{
+font-family:"Bodoni 72","Didot","Bodoni MT","Times New Roman",serif;
+font-size:clamp(55px,10vw,120px);
+font-weight:500;
+letter-spacing:10px;
+line-height:1;
+color:#d6b36a;
+text-shadow:0 2px 8px rgba(0,0,0,.45);
+}
+.hero p{font-style:italic;font-size:18px;margin:15px 0 30px}
+.btn{display:inline-block;border:1px solid white;padding:14px 30px;color:white;font:11px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;transition:.3s}
+.btn:hover{background:white;color:#111}
+section{padding:90px 7%}
+.label{font:10px Arial,sans-serif;letter-spacing:3px;color:#777;text-transform:uppercase;margin-bottom:15px}
+h2{font-size:clamp(38px,5vw,60px);font-weight:400;margin-bottom:45px}
+.products{display:grid;grid-template-columns:repeat(2,1fr);gap:25px}
+.product{background:#ebe7df;overflow:hidden}
+.product-image-link{display:block}
+.product-image-wrap{width:100%;height:520px;background:#ebe7df;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.product img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;padding:24px;transition:transform .5s}
+.product:hover img{transform:scale(1.025)}
+.product-info{padding:22px;background:#ebe7df}
+.product-name{font-size:21px;margin-bottom:16px}
+.price{font:13px Arial,sans-serif;color:#777}
+.old-price{text-decoration:line-through;color:#888}
+.sale-price{margin-left:8px;color:#171717;font-size:15px;font-weight:700}
+.discount{margin-left:8px;font-size:11px;color:#777;letter-spacing:.5px}
+.size-label{display:block;margin:15px 0 8px;font:12px Arial,sans-serif;color:#666}
+.size-select{width:100%;padding:11px 14px;border:1px solid #ccc;background:white;color:#171717;font:13px Arial,sans-serif;outline:none;cursor:pointer}
+.buy-button{display:inline-block;width:100%;margin-top:18px;padding:14px 30px;border:1px solid #111;background:#111;color:white;font:11px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:.3s}
+.buy-button:hover{background:transparent;color:#111}
+.why{text-align:center}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:25px}
+.why-item{padding:25px 15px}.why-icon{font-size:22px;margin-bottom:12px}.why-item h3{font-size:18px;font-weight:400;margin-bottom:9px}.why-item p{font:12px Arial,sans-serif;color:#777;line-height:1.7}
+.statement{background:#ebe7df;text-align:center}.statement h2{max-width:850px;margin:0 auto 18px;line-height:1.12}.statement p{max-width:600px;margin:auto;font:14px Arial,sans-serif;color:#777}
+.story{background:#191917;color:white;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.story img{width:100%;height:550px;object-fit:cover;display:block}.story h2{font-size:clamp(40px,5vw,65px);line-height:1.08}.story p{font:15px Arial,sans-serif;color:#c8c7c2;line-height:1.9;max-width:500px}
+.newsletter{text-align:center}.newsletter p{font:14px Arial,sans-serif;color:#777;margin:0 auto 25px;max-width:550px}
+.newsletter-form{display:flex;max-width:520px;margin:auto;border:1px solid #bbb;background:white}.newsletter-form input{flex:1;border:0;outline:0;padding:15px;font:13px Arial,sans-serif}.newsletter-form button{border:0;background:#111;color:white;padding:0 24px;font:10px Arial,sans-serif;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer}
+.contact{text-align:center}.contact h2{max-width:800px;margin:0 auto 25px}.contact p{font:14px Arial,sans-serif;color:#777;margin-bottom:30px}.dark{color:#111;border-color:#111}.dark:hover{background:#111;color:white}
+footer{background:#111;color:white;padding:50px 7% 25px;font:11px Arial,sans-serif}.footer-logo{font-family:Georgia,serif;font-size:22px;letter-spacing:6px;margin-bottom:25px}.policy-links{margin-top:28px;padding-top:20px;border-top:1px solid #333;display:flex;flex-wrap:wrap;gap:10px 20px}.policy-links a{color:#aaa}.policy-links a:hover{color:white}
+.offer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.58);display:none;align-items:center;justify-content:center;padding:20px;z-index:1000}.offer-overlay.show{display:flex}.offer-popup{width:min(470px,100%);background:#f5f2ec;position:relative;padding:45px 35px 35px;text-align:center;box-shadow:0 20px 70px rgba(0,0,0,.25)}.offer-close{position:absolute;right:16px;top:12px;border:0;background:transparent;font-size:25px;color:#777;cursor:pointer}.offer-popup h2{font-size:36px;line-height:1.12;margin-bottom:12px}.offer-popup p{font:13px Arial,sans-serif;color:#777;margin-bottom:22px}.offer-form input{width:100%;padding:13px;border:1px solid #ccc;background:white;margin-bottom:10px;font:13px Arial,sans-serif;outline:none}.offer-form button{width:100%;padding:15px;border:1px solid #111;background:#111;color:white;cursor:pointer;font:10px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase}.offer-note{margin-top:12px;font:10px Arial,sans-serif;color:#999}
+@media(max-width:700px){.nav-links{display:none}nav{padding:22px 5%}.hero{min-height:82vh;padding:90px 5% 60px}.hero h1{letter-spacing:6px;font-size:clamp(48px,14vw,82px)}section{padding:70px 5%}.products{grid-template-columns:1fr}.product-image-wrap{height:430px}.why-grid{grid-template-columns:1fr 1fr;gap:10px}.story{grid-template-columns:1fr}.story img{height:420px}.newsletter-form{display:block;border:0;background:transparent}.newsletter-form input{width:100%;border:1px solid #bbb;margin-bottom:10px}.newsletter-form button{width:100%;padding:14px}.offer-popup{padding:40px 23px 28px}.offer-popup h2{font-size:30px}}
+</style>
 </head>
-
 <body>
 
-  <!-- NAVIGATION -->
-
-  <nav>
-    <div class="logo">VELONTE</div>
-
-    <ul class="nav-links">
-      <li><a href="#collection">Collection</a></li>
-      <li><a href="#story">Our Story</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-
-  <!-- HERO -->
-
-  <header class="hero">
-    <div class="hero-content">
-
-      <div class="label">
-        Modern Luxury Home Décor
-      </div>
-
-      <h1>VELONTE</h1>
-
-      <p>
-        Crafted for Calm. Made for You.
-      </p>
-
-      <a href="#collection" class="btn">
-        Explore Collection
-      </a>
-
-    </div>
-  </header>
-
-
-  <!-- COLLECTION -->
-
-  <section id="collection">
-
-    <div class="label">
-      The Collection
-    </div>
-
-    <h2>
-      Objects with presence.
-    </h2>
-
-    <div class="products">
-
-      <!-- PRODUCT 1 -->
-
-      <article class="product">
-
-        <a href="oval-vase.html" class="product-image-link">
-          <div class="product-image-wrap">
-            <img
-              src="265d1c0c-637f-4a92-a396-1587f849c95f.png"
-              alt="Sleek Oval Glassware Vase"
-            >
-          </div>
-        </a>
-
-        <div class="product-info">
-
-          <div class="product-name">
-            Sleek Oval Glassware Vase
-          </div>
-
-          <div class="price">
-            <span class="old-price">₹1,599</span>
-            <strong class="sale-price">₹1,199</strong>
-            <span class="discount">25% OFF</span>
-          </div>
-
-          <button
-            class="buy-button"
-            onclick="window.location.href='oval-vase.html';"
-          >
-            Buy Now
-          </button>
-
-        </div>
-
-      </article>
-
-
-      <!-- PRODUCT 2 -->
-
-      <article class="product">
-
-        <a href="product.html" class="product-image-link">
-          <div class="product-image-wrap">
-            <img
-              src="D04185F2-E42E-40F6-8C4F-E76BD91C139E.png"
-              alt="Round Glass Centerpiece Fish Bowl"
-            >
-          </div>
-        </a>
-
-        <div class="product-info">
-
-          <div class="product-name">
-            Round Glass Centerpiece Fish Bowl
-          </div>
-
-          <label
-            class="size-label"
-            for="fishBowlSize"
-          >
-            Select Size
-          </label>
-
-          <select
-            id="fishBowlSize"
-            class="size-select"
-            onchange="updateFishBowlPrice()"
-          >
-            <option value="999" data-mrp="1299">
-              8 Inch
-            </option>
-
-            <option value="1399" data-mrp="1799">
-              10 Inch
-            </option>
-          </select>
-
-          <div
-            class="price"
-            id="fishBowlPrice"
-            style="margin-top:14px;"
-          >
-            <span class="old-price">₹1,299</span>
-            <strong class="sale-price">₹999</strong>
-            <span class="discount">23% OFF</span>
-          </div>
-
-          <button
-            class="buy-button"
-            onclick="buyFishBowl();"
-          >
-            Buy Now
-          </button>
-
-        </div>
-
-      </article>
-
-
-      <!-- TEMPORARY PRODUCT 3 -->
-
-      <article class="product">
-
-        <div class="product-image-wrap">
-          <img
-            src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1200&q=85"
-            alt="Elegant Glass Decorative Bowl"
-          >
-        </div>
-
-        <div class="product-info">
-
-          <div class="product-name">
-            Sculptural Glass Bowl
-          </div>
-
-          <div class="price">
-            <span class="old-price">₹1,499</span>
-            <strong class="sale-price">₹1,099</strong>
-            <span class="discount">27% OFF</span>
-          </div>
-
-          <button
-            class="buy-button"
-            onclick="temporaryBuy('Sculptural Glass Bowl', 1099);"
-          >
-            Buy Now
-          </button>
-
-        </div>
-
-      </article>
-
-
-      <!-- TEMPORARY PRODUCT 4 -->
-
-      <article class="product">
-
-        <div class="product-image-wrap">
-          <img
-            src="https://images.unsplash.com/photo-1603204077779-bed963ea7d0e?auto=format&fit=crop&w=1200&q=85"
-            alt="Minimal Glass Table Decor"
-          >
-        </div>
-
-        <div class="product-info">
-
-          <div class="product-name">
-            Minimal Glass Table Decor
-          </div>
-
-          <div class="price">
-            <span class="old-price">₹1,699</span>
-            <strong class="sale-price">₹1,249</strong>
-            <span class="discount">26% OFF</span>
-          </div>
-
-          <button
-            class="buy-button"
-            onclick="temporaryBuy('Minimal Glass Table Decor', 1249);"
-          >
-            Buy Now
-          </button>
-
-        </div>
-
-      </article>
-
-
-      <!-- TEMPORARY PRODUCT 5 -->
-
-      <article class="product">
-
-        <div class="product-image-wrap">
-          <img
-            src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=1200&q=85"
-            alt="Premium Glass Vase"
-          >
-        </div>
-
-        <div class="product-info">
-
-          <div class="product-name">
-            Contour Glass Vase
-          </div>
-
-          <div class="price">
-            <span class="old-price">₹1,799</span>
-            <strong class="sale-price">₹1,299</strong>
-            <span class="discount">28% OFF</span>
-          </div>
-
-          <button
-            class="buy-button"
-            onclick="temporaryBuy('Contour Glass Vase', 1299);"
-          >
-            Buy Now
-          </button>
-
-        </div>
-
-      </article>
-
-    </div>
-
-  </section>
-
-
-  <!-- STORY -->
-
-  <section class="story" id="story">
-
-    <img
-      src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=90"
-      alt="Luxury interior"
-    >
-
-    <div>
-
-      <div
-        class="label"
-        style="color:#aaa;"
-      >
-        Our Story
-      </div>
-
-      <h2>
-        Made to make a space feel like yours.
-      </h2>
-
-      <p>
-        Velonte brings together timeless design, thoughtful craftsmanship
-        and the quiet beauty of glass. Born from the rich glassmaking
-        heritage of Firozabad, every piece is designed to bring warmth,
-        character and calm into everyday spaces.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- CONTACT -->
-
-  <section
-    id="contact"
-    class="contact"
-  >
-
-    <div class="label">
-      Connect With Velonte
-    </div>
-
-    <h2>
-      Let's create something beautiful.
-    </h2>
-
-    <p>
-      For product enquiries and collaborations,
-      get in touch with us.
-    </p>
-
-    <a
-      href="mailto:contact@velonte.in"
-      class="btn dark"
-    >
-      Contact Us
-    </a>
-
-  </section>
-
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <div class="footer-logo">
-      VELONTE
-    </div>
-
-    © 2026 VELONTE. All rights reserved.
-
-  </footer>
-
-
-  <!-- FISH BOWL PRICE SCRIPT -->
-
-  <script>
-    function updateFishBowlPrice() {
-      const select = document.getElementById("fishBowlSize");
-      const option = select.options[select.selectedIndex];
-
-      const selling = Number(option.value);
-      const mrp = Number(option.getAttribute("data-mrp"));
-
-      const discount = Math.round(
-        (1 - selling / mrp) * 100
-      );
-
-      document.getElementById("fishBowlPrice").innerHTML =
-        '<span class="old-price">₹' +
-        mrp.toLocaleString("en-IN") +
-        '</span>' +
-        '<strong class="sale-price">₹' +
-        selling.toLocaleString("en-IN") +
-        '</strong>' +
-        '<span class="discount">' +
-        discount +
-        '% OFF</span>';
-    }
-
-    function buyFishBowl() {
-      const select = document.getElementById("fishBowlSize");
-      const option = select.options[select.selectedIndex];
-
-      const size = option.textContent.trim();
-      const price = Number(option.value);
-
-      window.location.href =
-        "product.html?size=" +
-        encodeURIComponent(size) +
-        "&price=" +
-        encodeURIComponent(price);
-    }
-
-    function temporaryBuy(name, price) {
-      alert(
-        "VELONTE\n\n" +
-        name +
-        "\nPrice: ₹" +
-        price.toLocaleString("en-IN") +
-        "\n\nThis product will be connected when the actual product is added."
-      );
-    }
-  </script>
-
-  <script src="script.js"></script>
+<nav>
+<div class="logo">VELONTE</div>
+<ul class="nav-links">
+<li><a href="#collection">Collection</a></li>
+<li><a href="#story">Our Story</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<header class="hero">
+<div class="hero-content">
+<div class="label">Modern Luxury Home Décor</div>
+<h1>VELONTE</h1>
+<p>Crafted for Calm. Made for You.</p>
+<a href="#collection" class="btn">Explore Collection</a>
+</div>
+</header>
+
+<section id="collection">
+<div class="label">The Collection</div>
+<h2>Objects with presence.</h2>
+<div class="products">
+
+<article class="product">
+<a href="oval-vase.html" class="product-image-link"><div class="product-image-wrap"><img src="265d1c0c-637f-4a92-a396-1587f849c95f.png" alt="Sleek Oval Glassware Vase"></div></a>
+<div class="product-info">
+<div class="product-name">Sleek Oval Glassware Vase</div>
+<label class="size-label" for="ovalVaseSize">Select Size</label>
+<select id="ovalVaseSize" class="size-select" onchange="updatePrice('ovalVaseSize','ovalVasePrice')">
+<option value="999" data-mrp="1299">8 Inch</option><option value="1299" data-mrp="1699">10 Inch</option>
+</select>
+<div class="price" id="ovalVasePrice" style="margin-top:14px;"><span class="old-price">₹1,299</span><strong class="sale-price">₹999</strong><span class="discount">23% OFF</span></div>
+<button class="buy-button" onclick="buySizedProduct('Sleek Oval Glassware Vase','ovalVaseSize','265d1c0c-637f-4a92-a396-1587f849c95f.png')">Buy Now</button>
+</div>
+</article>
+
+<article class="product">
+<a href="product.html" class="product-image-link"><div class="product-image-wrap"><img src="D04185F2-E42E-40F6-8C4F-E76BD91C139E.png" alt="Round Glass Centerpiece Fish Bowl"></div></a>
+<div class="product-info">
+<div class="product-name">Round Glass Centerpiece Fish Bowl</div>
+<label class="size-label" for="fishBowlSize">Select Size</label>
+<select id="fishBowlSize" class="size-select" onchange="updatePrice('fishBowlSize','fishBowlPrice')">
+<option value="999" data-mrp="1299">8 Inch</option><option value="1399" data-mrp="1799">10 Inch</option>
+</select>
+<div class="price" id="fishBowlPrice" style="margin-top:14px;"><span class="old-price">₹1,299</span><strong class="sale-price">₹999</strong><span class="discount">23% OFF</span></div>
+<button class="buy-button" onclick="buySizedProduct('Round Glass Centerpiece Fish Bowl','fishBowlSize','D04185F2-E42E-40F6-8C4F-E76BD91C139E.png')">Buy Now</button>
+</div>
+</article>
+
+<!-- TEMPORARY PRODUCT 1 -->
+<article class="product">
+<div class="product-image-wrap"><img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1200&q=85" alt="Sculptural Glass Bowl"></div>
+<div class="product-info">
+<div class="product-name">Sculptural Glass Bowl</div>
+<label class="size-label" for="tempOneSize">Select Size</label>
+<select id="tempOneSize" class="size-select" onchange="updatePrice('tempOneSize','tempOnePrice')">
+<option value="1099" data-mrp="1499">8 Inch</option><option value="1299" data-mrp="1699">10 Inch</option>
+</select>
+<div class="price" id="tempOnePrice" style="margin-top:14px;"><span class="old-price">₹1,499</span><strong class="sale-price">₹1,099</strong><span class="discount">27% OFF</span></div>
+<button class="buy-button" onclick="buySizedProduct('Sculptural Glass Bowl','tempOneSize','https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=1200&q=85')">Buy Now</button>
+</div>
+</article>
+
+<!-- TEMPORARY PRODUCT 2 -->
+<article class="product">
+<div class="product-image-wrap"><img src="https://images.unsplash.com/photo-1603204077779-bed963ea7d0e?auto=format&fit=crop&w=1200&q=85" alt="Minimal Glass Table Decor"></div>
+<div class="product-info">
+<div class="product-name">Minimal Glass Table Decor</div>
+<label class="size-label" for="tempTwoSize">Select Size</label>
+<select id="tempTwoSize" class="size-select" onchange="updatePrice('tempTwoSize','tempTwoPrice')">
+<option value="1249" data-mrp="1699">8 Inch</option><option value="1449" data-mrp="1899">10 Inch</option>
+</select>
+<div class="price" id="tempTwoPrice" style="margin-top:14px;"><span class="old-price">₹1,699</span><strong class="sale-price">₹1,249</strong><span class="discount">26% OFF</span></div>
+<button class="buy-button" onclick="buySizedProduct('Minimal Glass Table Decor','tempTwoSize','https://images.unsplash.com/photo-1603204077779-bed963ea7d0e?auto=format&fit=crop&w=1200&q=85')">Buy Now</button>
+</div>
+</article>
+
+<!-- TEMPORARY PRODUCT 3 — NO SIZE -->
+<article class="product">
+<div class="product-image-wrap"><img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=1200&q=85" alt="Contour Glass Vase"></div>
+<div class="product-info">
+<div class="product-name">Contour Glass Vase</div>
+<div class="price"><span class="old-price">₹1,799</span><strong class="sale-price">₹1,299</strong><span class="discount">28% OFF</span></div>
+<button class="buy-button" onclick="buyProduct('Contour Glass Vase',1299,'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=1200&q=85')">Buy Now</button>
+</div>
+</article>
+
+</div>
+</section>
+
+<section class="why">
+<div class="label">The VELONTE Difference</div>
+<h2>Simple things, thoughtfully made.</h2>
+<div class="why-grid">
+<div class="why-item"><div class="why-icon">✦</div><h3>Thoughtful Design</h3><p>Timeless forms created to complement modern spaces.</p></div>
+<div class="why-item"><div class="why-icon">◇</div><h3>Premium Glass</h3><p>Elegant glass pieces chosen for their refined presence.</p></div>
+<div class="why-item"><div class="why-icon">⌂</div><h3>Made for Your Space</h3><p>Pieces designed to add character without overwhelming a room.</p></div>
+<div class="why-item"><div class="why-icon">∞</div><h3>Pan-India Delivery</h3><p>We carefully pack and ship your pieces across India.</p></div>
+</div>
+</section>
+
+<section class="statement">
+<div class="label">VELONTE</div>
+<h2>Designed to make everyday spaces feel extraordinary.</h2>
+<p>Quiet forms. Refined details. Objects made to become part of your space.</p>
+</section>
+
+<section class="story" id="story">
+<img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=90" alt="Luxury interior">
+<div>
+<div class="label" style="color:#aaa;">Our Story</div>
+<h2>Made to make a space feel like yours.</h2>
+<p>Velonte brings together timeless design, thoughtful craftsmanship and the quiet beauty of glass. Every piece is designed to bring warmth, character and calm into everyday spaces.</p>
+</div>
+</section>
+
+<section class="newsletter">
+<div class="label">Stay Connected</div>
+<h2>Be the first to discover VELONTE.</h2>
+<p>Join our list for new collections, special offers and thoughtful pieces for your space.</p>
+<form class="newsletter-form" onsubmit="joinNewsletter(event)">
+<input type="email" id="newsletterEmail" placeholder="Your email address" required>
+<button type="submit">Join VELONTE</button>
+</form>
+</section>
+
+<section id="contact" class="contact">
+<div class="label">Connect With Velonte</div>
+<h2>Let's create something beautiful.</h2>
+<p>For product enquiries and collaborations, get in touch with us.</p>
+<a href="mailto:contact@velonte.in" class="btn dark">Contact Us</a>
+</section>
+
+<footer>
+<div class="footer-logo">VELONTE</div>
+© 2026 VELONTE. All rights reserved.
+<div class="policy-links">
+<a href="privacy-policy.html">Privacy Policy</a>
+<a href="terms-and-conditions.html">Terms & Conditions</a>
+<a href="shipping-policy.html">Shipping Policy</a>
+<a href="return-refund-policy.html">Return & Refund</a>
+<a href="contact.html">Contact Us</a>
+</div>
+</footer>
+
+<div class="offer-overlay" id="offerOverlay">
+<div class="offer-popup">
+<button class="offer-close" onclick="closeOffer()" aria-label="Close">×</button>
+<div class="label">Welcome to VELONTE</div>
+<h2>Join us & get 5% off your first order.</h2>
+<p>Enter your details and we'll keep you updated with new pieces and special offers.</p>
+<form class="offer-form" onsubmit="joinOffer(event)">
+<input id="offerEmail" type="email" placeholder="Email address" required>
+<input id="offerMobile" type="tel" inputmode="numeric" maxlength="10" pattern="[0-9]{10}" placeholder="Mobile number" required>
+<button type="submit">Get My 5% Off</button>
+</form>
+<div class="offer-note">Your details will be used only for VELONTE updates and offers.</div>
+</div>
+</div>
+
+<script>
+function goToCheckout(product,price,image,size){
+let url="checkout.html?product="+encodeURIComponent(product)+"&price="+encodeURIComponent(price)+"&image="+encodeURIComponent(image);
+if(size)url+="&size="+encodeURIComponent(size);
+window.location.href=url;
+}
+function buyProduct(product,price,image){goToCheckout(product,price,image,"")}
+function updatePrice(selectId,priceId){
+const select=document.getElementById(selectId),option=select.options[select.selectedIndex];
+const selling=Number(option.value),mrp=Number(option.getAttribute("data-mrp"));
+const discount=Math.round((1-selling/mrp)*100);
+document.getElementById(priceId).innerHTML='<span class="old-price">₹'+mrp.toLocaleString("en-IN")+'</span><strong class="sale-price">₹'+selling.toLocaleString("en-IN")+'</strong><span class="discount">'+discount+'% OFF</span>';
+}
+function buySizedProduct(product,selectId,image){
+const select=document.getElementById(selectId),option=select.options[select.selectedIndex];
+goToCheckout(product,Number(option.value),image,option.textContent.trim());
+}
+function closeOffer(){document.getElementById("offerOverlay").classList.remove("show");sessionStorage.setItem("velonteOfferClosed","1")}
+function joinOffer(e){
+e.preventDefault();
+const email=document.getElementById("offerEmail").value.trim(),mobile=document.getElementById("offerMobile").value.trim();
+if(!email||!(/^[0-9]{10}$/.test(mobile))){alert("Please enter a valid email and 10-digit mobile number.");return}
+localStorage.setItem("velonteOfferEmail",email);localStorage.setItem("velonteOfferMobile",mobile);localStorage.setItem("velonteOfferJoined","1");
+alert("Welcome to VELONTE! Your 5% first-order offer is ready.");closeOffer();
+}
+function joinNewsletter(e){
+e.preventDefault();const email=document.getElementById("newsletterEmail").value.trim();if(!email)return;
+localStorage.setItem("velonteNewsletterEmail",email);alert("Thank you for joining VELONTE.");document.getElementById("newsletterEmail").value="";
+}
+window.addEventListener("load",function(){
+if(!sessionStorage.getItem("velonteOfferClosed")&&!localStorage.getItem("velonteOfferJoined")){
+setTimeout(function(){document.getElementById("offerOverlay").classList.add("show")},1800);
+}
+});
+</script>
+<script src="script.js"></script>
 </body>
 </html>
