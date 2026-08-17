@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>VELONTE — Product</title>
+  <title>VELONTE — Round Glass Centerpiece Fish Bowl</title>
 
   <link rel="stylesheet" href="style.css">
 
@@ -230,13 +230,14 @@
 
         <button
           class="buy-button"
+          type="button"
           onclick="buyNow()"
         >
           Buy Now
         </button>
 
         <div class="product-note">
-          Secure checkout and Cash on Delivery will be added next.
+          Secure checkout and online payment via Razorpay.
         </div>
 
       </div>
@@ -246,16 +247,25 @@
   </div>
 
   <script>
+
     function updateDetailPrice() {
-      const select = document.getElementById("detailSize");
-      const option = select.options[select.selectedIndex];
 
-      const selling = Number(option.value);
-      const mrp = Number(option.getAttribute("data-mrp"));
+      const select =
+        document.getElementById("detailSize");
 
-      const discount = Math.round(
-        (1 - selling / mrp) * 100
-      );
+      const option =
+        select.options[select.selectedIndex];
+
+      const selling =
+        Number(option.value);
+
+      const mrp =
+        Number(option.getAttribute("data-mrp"));
+
+      const discount =
+        Math.round(
+          (1 - selling / mrp) * 100
+        );
 
       document.getElementById("detailPrice").innerHTML =
         '<span class="old">₹' +
@@ -271,21 +281,43 @@
         '% OFF</span>';
     }
 
+
     function buyNow() {
-      const select = document.getElementById("detailSize");
-      const option = select.options[select.selectedIndex];
 
-      const size = option.textContent.trim();
-      const price = Number(option.value);
+      const select =
+        document.getElementById("detailSize");
 
-      alert(
-        "VELONTE\n\n" +
-        "Round Glass Centerpiece Fish Bowl\n" +
-        "Size: " + size + "\n" +
-        "Price: ₹" + price.toLocaleString("en-IN") +
-        "\n\nCheckout will be connected next."
-      );
+      const option =
+        select.options[select.selectedIndex];
+
+      const product =
+        "Round Glass Centerpiece Fish Bowl";
+
+      const size =
+        option.textContent.trim();
+
+      const price =
+        Number(option.value);
+
+      const image =
+        "D04185F2-E42E-40F6-8C4F-E76BD91C139E.png";
+
+
+      window.location.href =
+        "checkout.html" +
+        "?product=" +
+        encodeURIComponent(product) +
+
+        "&price=" +
+        encodeURIComponent(price) +
+
+        "&image=" +
+        encodeURIComponent(image) +
+
+        "&size=" +
+        encodeURIComponent(size);
     }
+
   </script>
 
 </body>
