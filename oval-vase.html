@@ -94,6 +94,70 @@
       max-width: 520px;
     }
 
+    .detail-size-label {
+      display: block;
+      font: 11px Arial, sans-serif;
+      letter-spacing: 1px;
+      color: #666;
+      text-transform: uppercase;
+      margin-bottom: 9px;
+    }
+
+    .detail-size {
+      width: 100%;
+      max-width: 350px;
+      padding: 13px 14px;
+      border: 1px solid #ccc;
+      background: white;
+      font: 13px Arial, sans-serif;
+      margin-bottom: 18px;
+    }
+
+    .quantity-label {
+      display: block;
+      font: 11px Arial, sans-serif;
+      letter-spacing: 1px;
+      color: #666;
+      text-transform: uppercase;
+      margin-bottom: 9px;
+    }
+
+    .quantity-box {
+      display: flex;
+      align-items: center;
+      width: 140px;
+      height: 45px;
+      border: 1px solid #ccc;
+      background: white;
+      margin-bottom: 12px;
+    }
+
+    .quantity-box button {
+      width: 42px;
+      height: 100%;
+      border: 0;
+      background: white;
+      font: 18px Arial, sans-serif;
+      cursor: pointer;
+      color: #171717;
+    }
+
+    .quantity-box button:hover {
+      background: #f5f2ec;
+    }
+
+    .quantity-box span {
+      flex: 1;
+      text-align: center;
+      font: 13px Arial, sans-serif;
+    }
+
+    .quantity-offer {
+      font: 11px Arial, sans-serif;
+      color: #777;
+      margin-bottom: 22px;
+    }
+
     .buy-button {
       display: inline-block;
       padding: 16px 32px;
@@ -170,10 +234,13 @@
           Sleek Oval Glassware Vase
         </h1>
 
-        <div class="product-detail-price">
-          <span class="old">₹1,599</span>
-          <strong class="sale">₹1,199</strong>
-          <span class="off">25% OFF</span>
+        <div
+          class="product-detail-price"
+          id="detailPrice"
+        >
+          <span class="old">₹1,299</span>
+          <strong class="sale">₹999</strong>
+          <span class="off">23% OFF</span>
         </div>
 
         <p class="product-description">
@@ -183,15 +250,67 @@
           tables, consoles, coffee tables and modern interiors.
         </p>
 
+        <label
+          class="detail-size-label"
+          for="detailSize"
+        >
+          Select Size
+        </label>
+
+        <select
+          id="detailSize"
+          class="detail-size"
+          onchange="updateDetailPrice()"
+        >
+          <option value="999" data-mrp="1299">
+            8 Inch
+          </option>
+
+          <option value="1299" data-mrp="1699">
+            10 Inch
+          </option>
+        </select>
+
+        <label class="quantity-label">
+          Quantity
+        </label>
+
+        <div class="quantity-box">
+
+          <button
+            type="button"
+            onclick="changeQuantity(-1)"
+          >
+            −
+          </button>
+
+          <span id="quantity">
+            1
+          </span>
+
+          <button
+            type="button"
+            onclick="changeQuantity(1)"
+          >
+            +
+          </button>
+
+        </div>
+
+        <div class="quantity-offer">
+          Buy 2 or more & get 5% OFF
+        </div>
+
         <button
           class="buy-button"
+          type="button"
           onclick="buyNow()"
         >
           Buy Now
         </button>
 
         <div class="product-note">
-          Secure checkout and Cash on Delivery will be added next.
+          Secure checkout and online payment via Razorpay.
         </div>
 
       </div>
@@ -201,14 +320,116 @@
   </div>
 
   <script>
+
+    let quantity = 1;
+
+
+    function updateDetailPrice() {
+
+      const select =
+        document.getElementById("detailSize");
+
+      const option =
+        select.options[select.selectedIndex];
+
+      const selling =
+        Number(option.value);
+
+      const mrp =
+        Number(option.getAttribute("data-mrp"));
+
+      const discount =
+        Math.round(
+          (1 - selling / mrp) * 100
+        );
+
+      document.getElementById("detailPrice").innerHTML =
+        '<span class="old">₹' +
+        mrp.toLocaleString("en-IN") +
+        '</span>' +
+
+        '<strong class="sale">₹' +
+        selling.toLocaleString("en-IN") +
+        '</strong>' +
+
+        '<span class="off">' +
+        discount +
+        '% OFF</span>';
+    }
+
+
+    function changeQuantity(change) {
+
+      quantity += change;
+
+      if (quantity < 1) {
+        quantity = 1;
+      }
+
+      document.getElementById("quantity").textContent =
+        quantity;
+    }
+
+
     function buyNow() {
-      alert(
-        "VELONTE\n\n" +
-        "Sleek Oval Glassware Vase\n" +
-        "Price: ₹1,199\n\n" +
-        "Checkout will be connected next."
+
+      const select =
+        document.getElementById("detailSize");
+
+      const option =
+        select.options[select.selectedIndex];
+
+      const product =
+        "Sleek Oval Glassware Vase";
+
+      const price =
+        Number(option.value);
+
+      const size =
+        option.textContent.trim();
+
+      const image =
+        "265d1c0c-637f-4a92-a396-1587f849c95f.png";
+
+
+      const checkoutURL =
+        new URL(
+          "checkout.html",
+          window.location.href
+        );
+
+
+      checkoutURL.searchParams.set(
+        "product",
+        product
+      );
+
+      checkoutURL.searchParams.set(
+        "price",
+        price
+      );
+
+      checkoutURL.searchParams.set(
+        "image",
+        image
+      );
+
+      checkoutURL.searchParams.set(
+        "size",
+        size
+      );
+
+      checkoutURL.searchParams.set(
+        "quantity",
+        quantity
+      );
+
+
+      window.location.assign(
+        checkoutURL.href
       );
     }
+
   </script>
 
 </body>
