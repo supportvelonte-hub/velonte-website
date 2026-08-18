@@ -1,13 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>VELONTE — Checkout</title>
 
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
 <style>
+
 *{box-sizing:border-box}
 
 body{
@@ -175,6 +179,116 @@ body{
   color:#777;
 }
 
+
+/* INFLUENCER CODE */
+
+.influencer-box{
+  margin-top:25px;
+  padding-top:20px;
+  border-top:1px solid #ddd;
+}
+
+.influencer-title{
+  font:11px Arial,sans-serif;
+  letter-spacing:1px;
+  color:#666;
+  margin-bottom:10px;
+}
+
+.influencer-row{
+  display:flex;
+  gap:8px;
+}
+
+.influencer-row input{
+  flex:1;
+  padding:13px 14px;
+  border:1px solid #ccc;
+  background:#fff;
+  outline:none;
+  font:13px Arial,sans-serif;
+  text-transform:uppercase;
+}
+
+.influencer-row button{
+  padding:0 18px;
+  border:1px solid #111;
+  background:#111;
+  color:#fff;
+  cursor:pointer;
+  font:10px Arial,sans-serif;
+  letter-spacing:1px;
+}
+
+.influencer-row button:hover{
+  background:transparent;
+  color:#111;
+}
+
+.influencer-message{
+  margin-top:9px;
+  font:11px Arial,sans-serif;
+  min-height:16px;
+}
+
+.influencer-message.success{
+  color:#3f6b45;
+}
+
+.influencer-message.error{
+  color:#a33d3d;
+}
+
+
+/* PAYMENT METHOD */
+
+.payment-method{
+  margin-top:25px;
+  padding-top:20px;
+  border-top:1px solid #ddd;
+}
+
+.payment-title{
+  font:11px Arial,sans-serif;
+  letter-spacing:1px;
+  color:#666;
+  margin-bottom:12px;
+}
+
+.payment-option{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:15px;
+  border:1px solid #ddd;
+  margin-bottom:8px;
+  cursor:pointer;
+  font-family:Arial,sans-serif;
+}
+
+.payment-option input{
+  width:auto;
+}
+
+.payment-option span{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.payment-option strong{
+  font-size:13px;
+  font-weight:500;
+}
+
+.payment-option small{
+  font-size:11px;
+  color:#888;
+}
+
+
+/* SUMMARY */
+
 .summary{
   border-top:1px solid #ddd;
   margin-top:25px;
@@ -215,6 +329,11 @@ body{
   color:#111;
 }
 
+.place-order:disabled{
+  opacity:.6;
+  cursor:not-allowed;
+}
+
 .note{
   margin-top:18px;
   text-align:center;
@@ -223,7 +342,9 @@ body{
   line-height:1.6;
 }
 
+
 @media(max-width:800px){
+
   .checkout-page{
     padding:60px 5%;
   }
@@ -240,9 +361,21 @@ body{
   .state-row{
     grid-template-columns:1fr;
   }
+
+  .influencer-row{
+    flex-direction:column;
+  }
+
+  .influencer-row button{
+    height:44px;
+  }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
@@ -254,7 +387,9 @@ body{
 
 <div class="checkout-grid">
 
+
 <!-- PRODUCT -->
+
 <div>
 
 <div class="section-label">
@@ -268,21 +403,36 @@ Checkout
 <div class="product-card">
 
 <div class="product-image">
-<img id="productImage" src="" alt="">
+
+<img
+id="productImage"
+src=""
+alt="">
+
 </div>
 
-<div class="product-name" id="productName">
+<div
+class="product-name"
+id="productName">
 Loading product...
 </div>
 
 <div class="product-detail">
+
 <div id="productSize"></div>
+
 <div id="productQuantity"></div>
+
 </div>
 
 <div class="product-price">
+
 <span>Price:</span>
-<strong id="productPrice">₹0</strong>
+
+<strong id="productPrice">
+₹0
+</strong>
+
 </div>
 
 </div>
@@ -291,6 +441,7 @@ Loading product...
 
 
 <!-- CUSTOMER DETAILS -->
+
 <div>
 
 <div class="form-box">
@@ -303,19 +454,31 @@ Delivery Details
 Complete Your Order
 </div>
 
+
 <form id="checkoutForm">
 
+
 <div class="field">
-<label for="customerName">Full Name</label>
+
+<label for="customerName">
+Full Name
+</label>
+
 <input
 type="text"
 id="customerName"
 placeholder="Your full name"
 required>
+
 </div>
 
+
 <div class="field">
-<label for="mobile">Mobile Number</label>
+
+<label for="mobile">
+Mobile Number
+</label>
+
 <input
 type="tel"
 id="mobile"
@@ -324,32 +487,56 @@ maxlength="10"
 pattern="[0-9]{10}"
 placeholder="10-digit mobile number"
 required>
+
 </div>
 
+
 <div class="field">
-<label for="email">Email Address</label>
+
+<label for="email">
+Email Address
+</label>
+
 <input
 type="email"
 id="email"
 placeholder="Your email address"
 required>
+
 </div>
 
+
 <div class="field">
-<label for="address">Address</label>
+
+<label for="address">
+Address
+</label>
+
 <textarea
 id="address"
 placeholder="House / Flat, Street, Area"
 required></textarea>
+
 </div>
+
 
 <div class="state-row">
 
-<div class="field">
-<label for="state">State</label>
 
-<select id="state" required>
-<option value="">Select State</option>
+<div class="field">
+
+<label for="state">
+State
+</label>
+
+<select
+id="state"
+required>
+
+<option value="">
+Select State
+</option>
+
 <option>Andhra Pradesh</option>
 <option>Arunachal Pradesh</option>
 <option>Assam</option>
@@ -383,12 +570,18 @@ required></textarea>
 <option>Ladakh</option>
 <option>Chandigarh</option>
 <option>Puducherry</option>
+
 </select>
 
 </div>
 
+
 <div class="field">
-<label for="pincode">PIN Code</label>
+
+<label for="pincode">
+PIN Code
+</label>
+
 <input
 type="text"
 id="pincode"
@@ -397,14 +590,19 @@ maxlength="6"
 pattern="[0-9]{6}"
 placeholder="6-digit PIN"
 required>
-</div>
 
 </div>
 
+</div>
+
+
+<!-- QUANTITY -->
 
 <div class="field">
 
-<label>Quantity</label>
+<label>
+Quantity
+</label>
 
 <div class="quantity-box">
 
@@ -414,7 +612,9 @@ onclick="changeQuantity(-1)">
 −
 </button>
 
-<span id="quantity">1</span>
+<span id="quantity">
+1
+</span>
 
 <button
 type="button"
@@ -431,32 +631,189 @@ Buy 2 or more & get 5% OFF
 </div>
 
 
+<!-- INFLUENCER CODE -->
+
+<div class="influencer-box">
+
+<div class="influencer-title">
+Have a VELONTE code?
+</div>
+
+<div class="influencer-row">
+
+<input
+type="text"
+id="influencerCode"
+placeholder="Enter code"
+maxlength="30">
+
+<button
+type="button"
+onclick="applyInfluencerCode()">
+APPLY
+</button>
+
+</div>
+
+<div
+id="influencerMessage"
+class="influencer-message">
+</div>
+
+</div>
+
+
+<!-- PAYMENT -->
+
+<div class="payment-method">
+
+<div class="payment-title">
+Payment Method
+</div>
+
+
+<label class="payment-option">
+
+<input
+type="radio"
+name="paymentMethod"
+value="online"
+checked>
+
+<span>
+
+<strong>
+Pay Online
+</strong>
+
+<small>
+Pay securely with Razorpay
+</small>
+
+</span>
+
+</label>
+
+
+<label class="payment-option">
+
+<input
+type="radio"
+name="paymentMethod"
+value="cod">
+
+<span>
+
+<strong>
+Cash on Delivery
+</strong>
+
+<small>
+Pay ₹99 advance, remaining on delivery
+</small>
+
+</span>
+
+</label>
+
+</div>
+
+
+<!-- SUMMARY -->
+
 <div class="summary">
 
-<div class="summary-row">
-<span>Product</span>
-<span id="summaryProduct">₹0</span>
-</div>
 
 <div class="summary-row">
-<span>Quantity</span>
-<span id="summaryQuantity">1</span>
+
+<span>
+Product
+</span>
+
+<span id="summaryProduct">
+₹0
+</span>
+
 </div>
+
 
 <div class="summary-row">
-<span>Discount</span>
-<span id="summaryDiscount">₹0</span>
+
+<span>
+Quantity
+</span>
+
+<span id="summaryQuantity">
+1
+</span>
+
 </div>
+
 
 <div class="summary-row">
-<span>Shipping</span>
-<span>FREE</span>
+
+<span>
+Quantity Discount
+</span>
+
+<span id="summaryDiscount">
+₹0
+</span>
+
 </div>
 
-<div class="summary-row total">
-<span>Total</span>
-<strong id="summaryTotal">₹0</strong>
+
+<div class="summary-row">
+
+<span>
+Influencer Discount
+</span>
+
+<span id="summaryInfluencerDiscount">
+₹0
+</span>
+
 </div>
+
+
+<div class="summary-row">
+
+<span>
+Shipping
+</span>
+
+<span>
+FREE
+</span>
+
+</div>
+
+
+<div class="summary-row">
+
+<span>
+Order Total
+</span>
+
+<strong id="summaryTotal">
+₹0
+</strong>
+
+</div>
+
+
+<div class="summary-row">
+
+<span>
+Payment Today
+</span>
+
+<strong id="paymentToday">
+₹0
+</strong>
+
+</div>
+
 
 </div>
 
@@ -464,12 +821,16 @@ Buy 2 or more & get 5% OFF
 <button
 type="submit"
 class="place-order">
-Place Order
+
+PAY & PLACE ORDER
+
 </button>
 
+
 <div class="note">
-Secure checkout. Payment options will be connected through Razorpay.
+Secure checkout powered by Razorpay.
 </div>
+
 
 </form>
 
@@ -484,13 +845,22 @@ Secure checkout. Payment options will be connected through Razorpay.
 
 <script>
 
-let params = new URLSearchParams(window.location.search);
+
+/* PRODUCT DATA */
+
+let params =
+new URLSearchParams(
+window.location.search
+);
 
 let product =
-params.get("product") || "VELONTE Product";
+params.get("product") ||
+"VELONTE Product";
 
 let price =
-Number(params.get("price")) || 0;
+Number(
+params.get("price")
+) || 0;
 
 let image =
 params.get("image") || "";
@@ -499,156 +869,719 @@ let size =
 params.get("size") || "";
 
 let quantity =
-Number(params.get("quantity")) || 1;
+Number(
+params.get("quantity")
+) || 1;
+
 
 if(quantity < 1){
 quantity = 1;
 }
 
 
+/* INFLUENCER CODES */
+
+let influencerCode = "";
+
+
+/*
+  Temporary influencer list.
+
+  Later these will be moved
+  to the Worker/database.
+*/
+
+const influencerCodes = {
+
+  "RAHUL3":"Rahul",
+
+  "PRIYA3":"Priya",
+
+  "ANSH3":"Ansh"
+
+};
+
+
 /* PRODUCT DISPLAY */
 
-document.getElementById("productName").textContent =
+document.getElementById(
+"productName"
+).textContent =
 product;
 
-document.getElementById("productPrice").textContent =
-"₹" + price.toLocaleString("en-IN");
 
-document.getElementById("productSize").textContent =
-size ? "Size: " + size : "";
+document.getElementById(
+"productPrice"
+).textContent =
+"₹" +
+price.toLocaleString("en-IN");
 
-document.getElementById("productQuantity").textContent =
+
+document.getElementById(
+"productSize"
+).textContent =
+size
+? "Size: " + size
+: "";
+
+
+document.getElementById(
+"productQuantity"
+).textContent =
 "Quantity: " + quantity;
 
-document.getElementById("productImage").src =
+
+document.getElementById(
+"productImage"
+).src =
 image;
 
-document.getElementById("productImage").alt =
+
+document.getElementById(
+"productImage"
+).alt =
 product;
 
-document.getElementById("quantity").textContent =
+
+document.getElementById(
+"quantity"
+).textContent =
 quantity;
 
 
-/* SUMMARY */
+/* APPLY INFLUENCER CODE */
+
+function applyInfluencerCode(){
+
+  const input =
+    document.getElementById(
+      "influencerCode"
+    );
+
+  const message =
+    document.getElementById(
+      "influencerMessage"
+    );
+
+
+  const code =
+    input.value
+    .trim()
+    .toUpperCase();
+
+
+  if(!code){
+
+    influencerCode = "";
+
+    message.textContent =
+      "Please enter your VELONTE code.";
+
+    message.className =
+      "influencer-message error";
+
+    updateSummary();
+
+    return;
+
+  }
+
+
+  if(influencerCodes[code]){
+
+    influencerCode =
+      code;
+
+    message.textContent =
+      "3% discount applied.";
+
+    message.className =
+      "influencer-message success";
+
+    input.disabled =
+      true;
+
+    updateSummary();
+
+  }else{
+
+    influencerCode =
+      "";
+
+    message.textContent =
+      "Invalid VELONTE code.";
+
+    message.className =
+      "influencer-message error";
+
+    updateSummary();
+
+  }
+
+}
+
+
+/* CALCULATE */
+
+function calculateTotal(){
+
+  const subtotal =
+    price * quantity;
+
+
+  const quantityDiscount =
+    quantity >= 2
+    ? Math.round(
+        subtotal * 0.05
+      )
+    : 0;
+
+
+  const afterQuantityDiscount =
+    subtotal -
+    quantityDiscount;
+
+
+  const influencerDiscount =
+    influencerCode
+    ? Math.round(
+        afterQuantityDiscount * 0.03
+      )
+    : 0;
+
+
+  const total =
+    afterQuantityDiscount -
+    influencerDiscount;
+
+
+  return {
+
+    subtotal:
+      subtotal,
+
+    quantityDiscount:
+      quantityDiscount,
+
+    influencerDiscount:
+      influencerDiscount,
+
+    total:
+      total
+
+  };
+
+}
+
+
+/* UPDATE SUMMARY */
 
 function updateSummary(){
 
-let subtotal =
-price * quantity;
+  const result =
+    calculateTotal();
 
-let discount = 0;
 
-if(quantity >= 2){
-discount =
-Math.round(subtotal * 0.05);
+  document.getElementById(
+    "summaryProduct"
+  ).textContent =
+    "₹" +
+    result.subtotal
+      .toLocaleString("en-IN");
+
+
+  document.getElementById(
+    "summaryQuantity"
+  ).textContent =
+    quantity;
+
+
+  document.getElementById(
+    "summaryDiscount"
+  ).textContent =
+    result.quantityDiscount > 0
+    ? "- ₹" +
+      result.quantityDiscount
+        .toLocaleString("en-IN")
+    : "₹0";
+
+
+  document.getElementById(
+    "summaryInfluencerDiscount"
+  ).textContent =
+    result.influencerDiscount > 0
+    ? "- ₹" +
+      result.influencerDiscount
+        .toLocaleString("en-IN")
+    : "₹0";
+
+
+  document.getElementById(
+    "summaryTotal"
+  ).textContent =
+    "₹" +
+    result.total
+      .toLocaleString("en-IN");
+
+
+  updatePaymentDisplay();
+
 }
 
-let total =
-subtotal - discount;
 
-document.getElementById("summaryProduct").textContent =
-"₹" + subtotal.toLocaleString("en-IN");
+/* PAYMENT DISPLAY */
 
-document.getElementById("summaryQuantity").textContent =
-quantity;
+function updatePaymentDisplay(){
 
-document.getElementById("summaryDiscount").textContent =
-discount > 0
-? "- ₹" + discount.toLocaleString("en-IN")
-: "₹0";
+  const method =
+    document.querySelector(
+      'input[name="paymentMethod"]:checked'
+    ).value;
 
-document.getElementById("summaryTotal").textContent =
-"₹" + total.toLocaleString("en-IN");
 
-document.getElementById("productQuantity").textContent =
-"Quantity: " + quantity;
+  const result =
+    calculateTotal();
+
+
+  const paymentToday =
+    method === "cod"
+    ? 99
+    : result.total;
+
+
+  document.getElementById(
+    "paymentToday"
+  ).textContent =
+    "₹" +
+    paymentToday
+      .toLocaleString("en-IN");
+
+
+  const button =
+    document.querySelector(
+      ".place-order"
+    );
+
+
+  if(method === "cod"){
+
+    button.textContent =
+      "PAY ₹99 & PLACE COD ORDER";
+
+  }else{
+
+    button.textContent =
+      "PAY & PLACE ORDER";
+
+  }
 
 }
-
-updateSummary();
 
 
 /* QUANTITY */
 
 function changeQuantity(change){
 
-quantity += change;
+  quantity += change;
 
-if(quantity < 1){
-quantity = 1;
+
+  if(quantity < 1){
+    quantity = 1;
+  }
+
+
+  document.getElementById(
+    "quantity"
+  ).textContent =
+    quantity;
+
+
+  updateSummary();
+
 }
 
-document.getElementById("quantity").textContent =
-quantity;
+
+/* PAYMENT METHOD CHANGE */
+
+document
+.querySelectorAll(
+  'input[name="paymentMethod"]'
+)
+.forEach(
+  function(radio){
+
+    radio.addEventListener(
+      "change",
+      updatePaymentDisplay
+    );
+
+  }
+);
+
+
+/* INITIAL */
 
 updateSummary();
 
-}
 
+/* FORM SUBMIT */
 
-/* FORM */
-
-document.getElementById("checkoutForm").addEventListener(
+document.getElementById(
+"checkoutForm"
+).addEventListener(
 "submit",
-function(e){
+async function(e){
 
-e.preventDefault();
-
-const name =
-document.getElementById("customerName").value.trim();
-
-const mobile =
-document.getElementById("mobile").value.trim();
-
-const email =
-document.getElementById("email").value.trim();
-
-const address =
-document.getElementById("address").value.trim();
-
-const state =
-document.getElementById("state").value;
-
-const pincode =
-document.getElementById("pincode").value.trim();
+  e.preventDefault();
 
 
-if(!/^[0-9]{10}$/.test(mobile)){
-alert("Please enter a valid 10-digit mobile number.");
-return;
-}
-
-if(!/^[0-9]{6}$/.test(pincode)){
-alert("Please enter a valid 6-digit PIN code.");
-return;
-}
+  const name =
+    document.getElementById(
+      "customerName"
+    ).value.trim();
 
 
-const discount =
-quantity >= 2
-? Math.round(price * quantity * 0.05)
-: 0;
-
-const total =
-(price * quantity) - discount;
+  const mobile =
+    document.getElementById(
+      "mobile"
+    ).value.trim();
 
 
-/*
-  TEMPORARY ORDER CONFIRMATION
+  const email =
+    document.getElementById(
+      "email"
+    ).value.trim();
 
-  Razorpay can be connected here next.
-*/
 
-alert(
-"VELONTE\n\n" +
-"Order Details\n\n" +
-"Product: " + product + "\n" +
-(size ? "Size: " + size + "\n" : "") +
-"Quantity: " + quantity + "\n" +
-"Total: ₹" + total.toLocaleString("en-IN") + "\n\n" +
-"Thank you, " + name + "!"
-);
+  const address =
+    document.getElementById(
+      "address"
+    ).value.trim();
+
+
+  const state =
+    document.getElementById(
+      "state"
+    ).value;
+
+
+  const pincode =
+    document.getElementById(
+      "pincode"
+    ).value.trim();
+
+
+  const paymentMethod =
+    document.querySelector(
+      'input[name="paymentMethod"]:checked'
+    ).value;
+
+
+  /* VALIDATION */
+
+  if(
+    !/^[0-9]{10}$/.test(
+      mobile
+    )
+  ){
+
+    alert(
+      "Please enter a valid 10-digit mobile number."
+    );
+
+    return;
+
+  }
+
+
+  if(
+    !/^[0-9]{6}$/.test(
+      pincode
+    )
+  ){
+
+    alert(
+      "Please enter a valid 6-digit PIN code."
+    );
+
+    return;
+
+  }
+
+
+  const result =
+    calculateTotal();
+
+
+  const button =
+    document.querySelector(
+      ".place-order"
+    );
+
+
+  button.disabled =
+    true;
+
+  button.textContent =
+    "PROCESSING...";
+
+
+  try{
+
+
+    /* CREATE RAZORPAY ORDER */
+
+    const response =
+      await fetch(
+
+        "https://velonte-payment.alwaysabhay111.workers.dev/",
+
+        {
+
+          method:
+            "POST",
+
+          headers:{
+            "Content-Type":
+              "application/json"
+          },
+
+
+          body:
+            JSON.stringify({
+
+              amount:
+                result.total,
+
+              paymentMethod:
+                paymentMethod,
+
+              product:
+                product,
+
+              size:
+                size,
+
+              quantity:
+                quantity,
+
+              customerName:
+                name,
+
+              mobile:
+                mobile,
+
+              email:
+                email,
+
+              address:
+                address,
+
+              state:
+                state,
+
+              pincode:
+                pincode,
+
+              influencerCode:
+                influencerCode
+
+            })
+
+        }
+
+      );
+
+
+    const data =
+      await response.json();
+
+
+    if(!data.success){
+
+      throw new Error(
+        data.error ||
+        "Payment could not be started."
+      );
+
+    }
+
+
+    /* RAZORPAY */
+
+    const options = {
+
+      key:
+        data.keyId,
+
+
+      amount:
+        data.order.amount,
+
+
+      currency:
+        "INR",
+
+
+      name:
+        "VELONTE",
+
+
+      description:
+        paymentMethod === "cod"
+        ? "VELONTE COD Advance"
+        : product,
+
+
+      order_id:
+        data.order.id,
+
+
+      prefill:{
+
+        name:
+          name,
+
+        email:
+          email,
+
+        contact:
+          mobile
+
+      },
+
+
+      notes:{
+
+        payment_method:
+          paymentMethod,
+
+        product:
+          product,
+
+        size:
+          size,
+
+        quantity:
+          String(quantity),
+
+        influencer_code:
+          influencerCode ||
+          "NONE"
+
+      },
+
+
+      theme:{
+
+        color:
+          "#111111"
+
+      },
+
+
+      handler:
+      function(paymentResponse){
+
+
+        if(
+          paymentMethod ===
+          "cod"
+        ){
+
+          alert(
+
+            "₹99 Advance Paid Successfully!\n\n" +
+
+            "VELONTE COD Order\n\n" +
+
+            "Remaining amount will be paid on delivery.\n\n" +
+
+            "Order ID: " +
+
+            paymentResponse
+              .razorpay_order_id
+
+          );
+
+
+        }else{
+
+
+          alert(
+
+            "Payment Successful!\n\n" +
+
+            "VELONTE\n\n" +
+
+            "Order ID: " +
+
+            paymentResponse
+              .razorpay_order_id
+
+          );
+
+        }
+
+
+        button.disabled =
+          false;
+
+
+        updatePaymentDisplay();
+
+      },
+
+
+      modal:{
+
+        ondismiss:
+        function(){
+
+          button.disabled =
+            false;
+
+          updatePaymentDisplay();
+
+        }
+
+      }
+
+    };
+
+
+    const razorpay =
+      new Razorpay(
+        options
+      );
+
+
+    razorpay.open();
+
+
+  }catch(error){
+
+
+    console.error(
+      error
+    );
+
+
+    alert(
+
+      "Payment could not be started.\n\n" +
+      error.message
+
+    );
+
+
+    button.disabled =
+      false;
+
+
+    updatePaymentDisplay();
+
+  }
 
 });
 
@@ -656,4 +1589,3 @@ alert(
 
 </body>
 </html>
-
